@@ -1,0 +1,7 @@
+.site-footer{margin-top:32px;padding:64px 0 24px;background:radial-gradient(110% 140% at 10% 0%,#0e3b55 0%,#061f2d 60%,#03121b 100%);color:#afd0de;font:16px/1.7 Arial,sans-serif}
+.site-footer *{box-sizing:border-box}.site-footer .container{max-width:1680px;margin:auto;padding:0 clamp(28px,8vw,140px)}
+.site-footer .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}.site-footer a{color:#afd0de;text-decoration:none}.site-footer a:hover{color:white}.site-footer a:focus-visible{outline:2px solid #88cde6;outline-offset:5px}
+.site-footer .logo{display:inline-block;margin-bottom:16px}.site-footer p{margin:0 0 22px;max-width:34ch}.site-footer h4{font-size:16px;color:#fff;margin:0 0 18px}.site-footer ul{list-style:none;padding:0;margin:0}.site-footer li{margin-bottom:12px}
+.site-footer .social-links a{display:inline-flex;width:44px;height:44px;border:1px solid #ffffff30;border-radius:12px;align-items:center;justify-content:center}.site-footer svg{width:20px;height:20px}
+.site-footer .footer-bottom{border-top:1px solid #ffffff20;margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:13px}.site-footer .footer-bottom p{max-width:none;margin:0}
+@media(max-width:1000px){.site-footer .footer-grid{grid-template-columns:1fr 1fr;gap:28px}}@media(max-width:600px){.site-footer{padding-top:36px;margin-top:24px}.site-footer .footer-grid{grid-template-columns:1fr}.site-footer .footer-bottom{flex-direction:column}}
