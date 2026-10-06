@@ -1,0 +1,4 @@
+/* Match the careers banner palette without changing page layouts or icons. */
+:is(#page-about,#page-blog,#page-contact) .page-hero{background:#6cb3da!important;color:#fff}
+:is(#page-about,#page-blog,#page-contact) .page-hero h1{color:#fff!important}
+:is(#page-about,#page-blog,#page-contact) .page-hero :is(p,nav,.breadcrumbs,.breadcrumbs li,.breadcrumbs a,nav a){color:#103f59!important}

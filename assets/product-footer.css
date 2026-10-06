@@ -5,3 +5,4 @@
 .site-footer .social-links a{display:inline-flex;width:44px;height:44px;border:1px solid #ffffff30;border-radius:12px;align-items:center;justify-content:center}.site-footer svg{width:20px;height:20px}
 .site-footer .footer-bottom{border-top:1px solid #ffffff20;margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:13px}.site-footer .footer-bottom p{max-width:none;margin:0}
 @media(max-width:1000px){.site-footer .footer-grid{grid-template-columns:1fr 1fr;gap:28px}}@media(max-width:600px){.site-footer{padding-top:36px;margin-top:24px}.site-footer .footer-grid{grid-template-columns:1fr}.site-footer .footer-bottom{flex-direction:column}}
+.gallery img[src$="/eye-drapes/sterile-eye-drape.png"]{width:75%;height:auto;display:block;margin-inline:auto}

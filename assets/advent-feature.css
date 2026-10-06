@@ -1,0 +1,8 @@
+.advent-feature{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(28px,5vw,64px);margin:48px 0;padding:28px;background:#fff;border:1px solid #e5ebf0;border-radius:28px}
+.advent-feature-media{background:#f2f4fa;border-radius:24px;padding:24px;min-width:0;overflow:hidden}
+.advent-feature-media img{display:block;width:100%;height:clamp(260px,32vw,420px);object-fit:contain}
+.advent-feature h2{color:#12384d;font-size:clamp(25px,2.8vw,36px);line-height:1.2;margin:0 0 24px}
+.advent-feature ul{margin:0;padding-left:22px;color:#526b7b;line-height:1.7;font-size:17px}
+.advent-feature li{padding-left:6px;margin:12px 0}
+.advent-feature li::marker{color:#b7954e}
+@media(max-width:700px){.advent-feature{grid-template-columns:1fr;padding:20px;gap:28px;margin:32px 0}.advent-feature-media{padding:16px}}

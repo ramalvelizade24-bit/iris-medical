@@ -1,0 +1,14 @@
+/* Match the Bloqumuz content edges and section rhythm, without recoloring. */
+.iris-rounded-vision,.cta-band,.site-footer{width:calc(min(100%,1680px) - clamp(72px,8vw,140px) - clamp(72px,8vw,140px));margin-inline:auto;border-radius:30px;overflow:hidden}
+.iris-rounded-vision,.cta-band{margin-block:40px}
+.iris-rounded-vision{padding-block:var(--section-y)}
+.iris-rounded-vision>.container,.cta-band>.container,.site-footer>.container{padding-inline:clamp(28px,4vw,64px);max-width:none}
+.cta-band__inner{padding-block:var(--section-y);gap:48px}
+.iris-rounded-vision .split{gap:56px}
+.iris-rounded-vision h2,.iris-rounded-vision p{color:#fff!important}
+.site-footer{margin-top:40px;margin-bottom:40px;padding-top:var(--section-y)}
+.site-footer .footer-grid{gap:40px;padding-bottom:64px}
+.site-footer .footer-bottom{padding-block:32px}
+@media(max-width:1000px){.cta-band__inner{grid-template-columns:1fr}.cta-band__actions{justify-content:flex-start}.site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.iris-rounded-vision,.cta-band,.site-footer{width:calc(100% - 56px);border-radius:22px;margin-block:28px}.iris-rounded-vision>.container,.cta-band>.container,.site-footer>.container{padding-inline:24px}.iris-rounded-vision .split{gap:32px}.cta-band__inner{gap:28px}.site-footer .footer-grid{gap:32px;padding-bottom:40px}}
+@media(max-width:480px){.site-footer .footer-grid{grid-template-columns:1fr}}

@@ -1,0 +1,29 @@
+.iris-hero>.container{display:grid;grid-template-columns:minmax(260px,.36fr) minmax(0,.64fr);gap:28px;align-items:stretch}
+.iris-hero-promo{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;min-height:610px;padding:42px 34px;display:flex;flex-direction:column;background:linear-gradient(155deg,#020912,#052c59 62%,#188dd4);color:white}
+.iris-hero-promo::before{content:"";position:absolute;z-index:-1;width:130%;height:65%;left:0;bottom:-12%;border-radius:44% 30% 0 0;transform:rotate(-24deg);background:linear-gradient(125deg,#d1f5ff,#42acf4 18%,#00498a 48%,#80daff 68%,#156aa3);box-shadow:inset 12px 12px 25px #d5f5ff88}
+.iris-hero-promo h2{color:white;font-size:clamp(30px,3vw,50px);line-height:1.12;margin:0 0 20px;overflow-wrap:anywhere}.iris-hero-promo p{color:#e0f2ff;font-size:18px;margin:0}.iris-hero-promo .iris-promo-brand{font-size:13px;letter-spacing:.18em;margin-bottom:22px}.iris-hero-promo .btn{margin-top:auto;justify-content:center;background:linear-gradient(110deg,#b2e4ff,#66b8ef)!important;color:#082f44!important}
+.iris-hero .iris-hero-banner{min-height:610px;border-radius:28px;padding:40px 42px 90px;align-items:flex-start;background:#e6f3fc!important}
+.iris-hero .iris-hero-banner::before{background:linear-gradient(180deg,#e6f3fc 0%,#e6f3fcf2 32%,#e6f3fc00 70%);z-index:0;pointer-events:none}
+.iris-hero .iris-hero-copy{max-width:100%;z-index:2;pointer-events:none}.iris-hero .iris-hero-copy h1{font-size:clamp(29px,3.1vw,48px);line-height:1.12;color:#123d58!important;margin-bottom:16px}.iris-hero .iris-hero-copy>p:not(.iris-hero-label){font-size:18px;line-height:1.45;color:#355c72!important;max-width:620px}.iris-hero-copy .iris-hero-label,.iris-hero-copy .hero__actions{display:none}
+.iris-hero .iris-hero-banner .hero-background{display:none}.hero-product-visual{position:absolute;right:0;bottom:0;width:100%;height:68%;object-fit:contain;object-position:center bottom;mix-blend-mode:multiply;pointer-events:none}
+.hero-next{position:absolute;right:16px;top:55%;z-index:3;border:0;border-radius:50%;width:54px;height:54px;background:#fff;color:#1685c7;font-size:32px;cursor:pointer;box-shadow:0 3px 12px #123e5320}.hero-next:focus-visible{outline:3px solid #1685c7;outline-offset:3px}
+.iris-hero .hero-slider-controls{z-index:3;bottom:20px}.iris-hero .hero-slider-dot{width:32px;height:5px;border-radius:6px;background:#7294a888}.iris-hero .hero-slider-dot[aria-pressed="true"]{background:#12577c;width:44px}.iris-hero .hero-slider-pause{color:#12577c;border-color:#7294a8}
+@media(max-width:900px){.iris-hero>.container{gap:18px;grid-template-columns:minmax(220px,.36fr) minmax(0,.64fr)}.iris-hero-promo{padding:30px 24px}.iris-hero .iris-hero-banner{padding:30px 26px 80px}.iris-hero-promo,.iris-hero .iris-hero-banner{min-height:580px}}
+@media(max-width:650px){.iris-hero>.container{grid-template-columns:1fr}.iris-hero-promo{min-height:300px}.iris-hero-promo .btn{margin-top:70px}.iris-hero .iris-hero-banner{min-height:560px}.iris-hero-promo h2{font-size:34px}}
+.iris-hero .iris-hero-banner.is-eye-slide{align-items:center;justify-content:center;padding:60px 60px 90px}
+.iris-hero .is-eye-slide .hero-product-visual{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:normal}
+.iris-hero .iris-hero-banner.is-eye-slide::before{display:block;z-index:1;background:linear-gradient(180deg,rgba(240,248,252,.10),rgba(240,248,252,.26) 48%,rgba(240,248,252,.12));pointer-events:none}
+.iris-hero .is-eye-slide .iris-hero-copy{text-align:center;width:100%;max-width:720px;text-shadow:0 1px 3px #fff,0 0 14px #ffffffcc}
+.iris-hero .is-eye-slide .iris-hero-copy>p:not(.iris-hero-label){margin:0 auto;max-width:620px}
+@media(max-width:650px){.iris-hero .iris-hero-banner.is-eye-slide{padding:42px 32px 85px}}
+.iris-hero-promo .btn[href="#services"],.iris-hero .hero__actions .btn[href="#services"]{background:linear-gradient(115deg,#f7dfa1,#dfb951 55%,#c99a2e)!important;color:#493509!important;border-color:#e8c96e!important;box-shadow:0 5px 16px #a7792226}
+.iris-hero-promo .btn[href="#services"]:hover,.iris-hero .hero__actions .btn[href="#services"]:hover{background:linear-gradient(115deg,#ffeab5,#e9c663 55%,#d7aa3e)!important;color:#493509!important}
+.iris-hero .is-eye-slide .hero-product-visual{transition:opacity .8s ease}
+@media(prefers-reduced-motion:reduce){.iris-hero .is-eye-slide .hero-product-visual{transition:none}}
+.iris-hero .is-eye-slide .hero-doctor-visual{object-position:right center}
+.iris-hero .iris-hero-banner.is-doctor-slide{justify-content:flex-start;padding-left:36px;padding-right:28px}
+.iris-hero .is-doctor-slide .iris-hero-copy{width:48%;text-align:left;text-shadow:none}
+.iris-hero .is-doctor-slide .iris-hero-copy h1{font-size:clamp(28px,2.7vw,42px)}
+.iris-hero .iris-hero-banner.is-doctor-slide::before{background:linear-gradient(90deg,#f0f8fc99 0%,#f0f8fc33 40%,transparent 62%)}
+@media(max-width:900px) and (min-width:651px){.iris-hero .iris-hero-banner.is-doctor-slide{padding-left:24px}.iris-hero .is-doctor-slide .iris-hero-copy{width:50%}.iris-hero .is-doctor-slide .iris-hero-copy h1{font-size:28px}}
+@media(max-width:650px){.iris-hero .iris-hero-banner.is-doctor-slide{align-items:flex-end;padding:28px 24px 80px}.iris-hero .is-doctor-slide .iris-hero-copy{width:100%;padding:16px;border-radius:18px;background:#f0f8fce6;box-sizing:border-box}.iris-hero .is-doctor-slide .iris-hero-copy h1{font-size:27px}.iris-hero .is-doctor-slide .iris-hero-copy>p:not(.iris-hero-label){font-size:16px}.iris-hero .iris-hero-banner.is-doctor-slide::before{background:none}}

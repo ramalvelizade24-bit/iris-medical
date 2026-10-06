@@ -1,0 +1,16 @@
+.product-order-actions{margin-top:32px;display:flex;justify-content:flex-end}
+.product-order-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;min-width:180px;padding:12px 28px;box-sizing:border-box;border:1px solid #c69a32;border-radius:30px;background:linear-gradient(120deg,#c79a2d 0%,#f7df91 48%,#d4ac49 100%);color:#302509;text-decoration:none;font:700 17px/1.4 Arial,sans-serif;box-shadow:0 6px 18px #95701b30;transition:box-shadow .2s,filter .2s}
+.product-order-button:hover{filter:brightness(1.06);box-shadow:0 8px 22px #95701b40}
+.product-order-button{cursor:pointer}
+.product-order-dialog{box-sizing:border-box;width:min(720px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:36px;border:1px solid #dce7ed;border-radius:22px;background:#fff;color:#125572;font:16px/1.5 Arial,sans-serif;overflow:auto;box-shadow:0 24px 80px #08294740}
+.product-order-dialog::backdrop{background:rgba(5,28,42,.55);backdrop-filter:blur(3px)}
+.product-order-dialog h2{font-size:28px;margin:0 44px 12px 0;line-height:1.2}
+.product-order-dialog .order-intro{color:#5d778d;margin:0 0 24px}
+.order-close{position:absolute;right:16px;top:14px;width:36px;height:36px;border:0;border-radius:50%;background:#f0f5f7;color:#125572;font-size:28px;cursor:pointer}
+.order-form{display:grid;gap:20px}.order-form label{display:grid;gap:8px;font-weight:600}.order-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.order-form input:not([type=checkbox]),.order-form select,.order-form textarea{box-sizing:border-box;width:100%;min-width:0;padding:14px 16px;border:1px solid #dce7ed;border-radius:12px;background:#f4f7f9;color:#244454;font:16px/1.5 Arial,sans-serif}
+.order-form textarea{resize:vertical}.order-form .order-consent{display:flex;align-items:flex-start;font-size:14px}.order-consent input{margin-top:4px}.order-status{color:#70531b;background:#fff8e5;border-radius:12px;padding:14px;margin:0}
+.order-form input:focus-visible,.order-form select:focus-visible,.order-form textarea:focus-visible,.order-close:focus-visible{outline:2px solid #08778a;outline-offset:2px}
+@media(max-width:600px){.product-order-dialog{padding:24px 18px}.order-row{grid-template-columns:1fr}.product-order-dialog h2{font-size:24px}}
+.product-order-button:focus-visible{outline:3px solid #08778a;outline-offset:4px}
+@media(max-width:600px){.product-order-button{width:100%}}

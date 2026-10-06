@@ -1,0 +1,11 @@
+.iris-team-grid{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding-bottom:12px;scroll-behavior:smooth}
+.iris-team-grid::-webkit-scrollbar{display:none}.iris-team-card{scroll-snap-align:start}.iris-team-controls{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin:20px 0 0}.iris-team-controls button{width:48px;height:48px;border-radius:50%;border:1px solid #c8dbe2;background:white;color:#0b506b;font-size:25px;cursor:pointer}.iris-team-controls button:hover:not(:disabled){background:#0b506b;color:white}.iris-team-controls button:disabled{opacity:.35;cursor:default}.iris-team-controls button:focus-visible,.iris-team-grid:focus-visible{outline:3px solid #08778a;outline-offset:3px}.iris-team-position{font-size:14px;color:#557383;font-variant-numeric:tabular-nums}
+@media(max-width:520px){.iris-team-card{flex-basis:88%;max-width:none}.iris-team-controls{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.iris-team-grid{scroll-behavior:auto}}
+.iris-team-controls button{background:linear-gradient(115deg,#f7dfa1,#dfb951,#c99a2e);border-color:#d5ae4b;color:#493509;transition:filter .2s ease}
+.iris-team-controls button:hover:not(:disabled){background:linear-gradient(115deg,#f7dfa1,#dfb951,#c99a2e);color:#493509;filter:brightness(1.06)}
+.iris-team-controls button:focus-visible{outline-color:#b58922}
+.iris-team-grid{cursor:grab;user-select:none;-webkit-user-select:none}
+.iris-team-grid.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.iris-team-grid img{-webkit-user-drag:none}
+.iris-team-controls{display:none!important}

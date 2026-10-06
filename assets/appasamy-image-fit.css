@@ -1,0 +1,6 @@
+.card[data-appasamy-october] .photo{display:flex!important;align-items:center;justify-content:center;box-sizing:border-box;min-width:0;overflow:hidden;padding:22px!important;background:transparent!important}
+.card[data-appasamy-october] .photo img{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;min-width:0;min-height:0;object-fit:contain!important;object-position:center!important;transform:none!important;background:transparent!important}
+body:has(.gallery img[src*="appasamy-october"]) .layout{min-width:0}
+body:has(.gallery img[src*="appasamy-october"]) .gallery{min-width:0;box-sizing:border-box;overflow:hidden;background:transparent!important}
+body:has(.gallery img[src*="appasamy-october"]) .gallery a{display:flex!important;align-items:center;justify-content:center;min-width:0;max-width:100%;box-sizing:border-box;padding:12px;overflow:hidden}
+body:has(.gallery img[src*="appasamy-october"]) .gallery img{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;background:transparent!important;border:0!important;aspect-ratio:auto!important}

@@ -32,6 +32,8 @@ html,body,.page,.section:not(.section--dark),#home-instagram,#page-services,#pag
 :root{--navigation-gray:#dedee0;--navigation-ink:#45566e;--navigation-active:#004982}
 .site-header,.site-header.is-stuck{background:var(--navigation-gray)!important;border-bottom-color:#c9cbd0;backdrop-filter:none}
 .site-header .logo{color:var(--navigation-active)}
+.site-header .logo img{width:140px!important;height:60px!important}
+@media(max-width:700px){.site-header .logo img{width:120px!important;height:52px!important}}
 .nav-list a{color:var(--navigation-ink)}
 .nav-list a:hover{background:#e9e9eb;color:var(--navigation-active)}
 .nav-list a.is-active{color:var(--navigation-active)}
@@ -47,9 +49,23 @@ html,body,.page,.section:not(.section--dark),#home-instagram,#page-services,#pag
 .btn:focus-visible,.whatsapp-order:focus-visible{outline:3px solid #88cde6;outline-offset:3px}
 .feature__icon{background:linear-gradient(125deg,#62768d,#40556c);color:#eef4fb;border:1px solid #8293a6;border-radius:16px;box-shadow:0 5px 16px #142b4320}
 #home-partners .partner-slide{flex:0 0 calc((100% - 66px)/4);box-sizing:border-box;height:160px;padding:24px;display:flex;align-items:center;justify-content:center}
-#home-partners .partner-slide img{width:100%;height:100%;object-fit:contain;aspect-ratio:auto}
+#home-partners .partner-slide img{width:85%;height:85%;object-fit:contain;aspect-ratio:auto}
+.partners-collection .partner-slide{flex:0 0 calc((100% - 66px)/4);box-sizing:border-box;height:160px;padding:24px;display:flex;align-items:center;justify-content:center}
+.partners-collection .partner-slide img{width:100%;height:100%;object-fit:contain;aspect-ratio:auto}
+.services-partners .partner-slide img{width:72%;height:72%;object-fit:contain}
+.partners-collection.services-partners .partner-slide{flex:0 0 calc((100% - 110px)/6);height:120px;padding:16px}
+@media(max-width:1000px){.partners-collection.services-partners .partner-slide{flex-basis:calc((100% - 66px)/4)}}
+@media(max-width:700px){.partners-collection.services-partners .partner-slide{flex-basis:44%;height:100px;padding:12px}}
+.partners-collection .carousel-arrow,#home-partners .carousel-arrow{background:linear-gradient(135deg,#c79a2d 0%,#f7df91 52%,#d4ac49 100%);border-color:#c69a32;color:#302509;box-shadow:0 6px 18px rgba(149,112,27,.32)}
+.partners-collection .carousel-arrow:hover,#home-partners .carousel-arrow:hover{background:linear-gradient(135deg,#d4a934 0%,#fff0b3 52%,#ddb650 100%)}
+.services-partners{padding-block:44px 12px;background:#F5F8FA}
+.services-partners .collection-heading{margin-bottom:24px}
+#page-services #madhu-catalog{padding-top:0!important}
 @media(max-width:1000px){#home-partners .partner-slide{flex-basis:calc((100% - 44px)/3)}}
 @media(max-width:700px){#home-partners .partner-slide{flex-basis:72%;height:140px}}
+@media(max-width:1000px){.partners-collection .partner-slide{flex-basis:calc((100% - 44px)/3)}}
+@media(max-width:700px){.partners-collection .partner-slide{flex-basis:72%;height:140px}.services-partners{padding-block:32px 8px}#page-services #madhu-catalog{padding-top:0!important}}
+@media(max-width:700px){#page-services #madhu-catalog>.container{max-width:none!important;padding-inline:0!important}}
 .iris-hero{padding:28px 0 36px}
 .iris-hero-banner{position:relative;isolation:isolate;overflow:hidden;border-radius:36px;background:#b6ccdc url('hero-waves.svg') center/cover;min-height:560px;display:flex;align-items:center;padding:64px 48px}
 .iris-hero-banner::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,62,84,.85),rgba(35,76,98,.6) 47%,rgba(59,101,130,.05) 85%)}
@@ -75,3 +91,31 @@ html,body,.page,.section:not(.section--dark),#home-instagram,#page-services,#pag
 .all-products-action .btn{background:linear-gradient(120deg,#b88a20 0%,#f0d477 48%,#c69a32 100%);color:#302509;border-color:#cfac55;box-shadow:0 5px 16px #95701b30}
 .all-products-action .btn:hover{background:linear-gradient(120deg,#c79a2d 0%,#f7df91 48%,#d4ac49 100%);color:#302509;border-color:#b58c2e;box-shadow:0 7px 20px #95701b40}
 .about-editorial{padding-block:16px 56px}.about-editorial article{max-width:1050px;font-size:18px;line-height:1.8}.about-editorial h2{font-size:clamp(24px,2.3vw,32px);margin:32px 0 16px}.about-editorial p{margin:0 0 18px}.about-editorial ul{padding-left:24px;margin:0 0 24px}.about-editorial li{margin-bottom:14px}.about-editorial strong{color:#123e53}.about-editorial .about-signature{border-left:3px solid #c69a32;padding:16px 24px;margin-top:32px}#page-about .page-hero nav,#page-about .page-hero nav a{color:#e2edf3}#page-about .page-hero h1{margin-top:24px}@media(max-width:700px){.about-editorial article{font-size:16px}}
+.carousel-arrow,#home-instagram .carousel-arrow{display:flex;align-items:center;justify-content:center;padding:0;line-height:1;box-sizing:border-box;top:50%;transform:translateY(-50%)}
+.carousel-arrow svg{width:24px;height:24px;display:block;flex:none}
+@media(max-width:700px){
+ .carousel-arrow,#home-instagram .carousel-arrow{width:42px;height:42px}
+ .iris-carousel .previous,#home-instagram .previous{left:8px}.iris-carousel .next,#home-instagram .next{right:8px}
+ .whatsapp-fab,.to-top{right:calc(16px + env(safe-area-inset-right,0px))!important;width:46px!important;height:46px!important;display:flex;align-items:center;justify-content:center;padding:0!important;box-sizing:border-box}
+ .whatsapp-fab{bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}.to-top{bottom:calc(74px + env(safe-area-inset-bottom,0px))!important}
+ .whatsapp-fab svg,.to-top svg{width:24px;height:24px;display:block;flex:none}
+ .nav-toggle{padding:0!important;align-items:center;justify-content:center;flex-shrink:0}
+}
+/* Expanding Instagram cards, scoped to the home Instagram section. */
+#home-instagram .carousel-track{gap:20px;align-items:stretch;scroll-snap-type:none;padding:4px 0 12px}
+#home-instagram .social-slide{position:relative;isolation:isolate;flex:1 1 0;min-width:0;height:560px;border-radius:48px;background:#07233e;transition:flex-grow .55s cubic-bezier(.22,.61,.36,1);text-decoration:none}
+#home-instagram .social-slide img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;background:#fff;transition:transform .65s ease}
+#home-instagram .social-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,18,35,.65),rgba(11,26,47,.62) 55%,#03213e);z-index:1;pointer-events:none;transition:opacity .5s ease}
+#home-instagram .social-slide.is-expanded{flex-grow:2.5}
+#home-instagram .social-slide.is-expanded::after{opacity:.18}
+#home-instagram .instagram-card-caption{position:absolute;z-index:2;left:20px;right:20px;bottom:56px;min-height:108px;padding:22px 18px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:14px;border:1px solid #ffffff38;border-radius:30px;background:#64798e55;backdrop-filter:blur(16px);color:#e6e9ee;transition:background .5s ease}
+#home-instagram .instagram-card-caption strong{font-size:16px;line-height:1.3;overflow-wrap:anywhere}
+#home-instagram .instagram-card-more{display:none;font-size:14px;color:#f5f8fc}
+#home-instagram .is-expanded .instagram-card-caption{background:#a6bbce88}
+#home-instagram .is-expanded .instagram-card-caption strong{color:#91d5ee;font-size:21px}
+#home-instagram .is-expanded .instagram-card-more{display:block}
+#home-instagram .social-slide:focus-visible{outline:3px solid #87d1ee;outline-offset:3px}
+#home-instagram .carousel-arrow[hidden]{display:none}
+@media(max-width:1000px){#home-instagram .social-slide{height:470px}#home-instagram .carousel-track{gap:14px}#home-instagram .instagram-card-caption{left:12px;right:12px;padding:16px 12px;bottom:36px;border-radius:24px}#home-instagram .instagram-card-caption strong{font-size:14px}}
+@media(max-width:700px){#home-instagram .social-slide{flex:0 0 36%;height:440px;border-radius:34px;transition:flex-basis .5s ease}#home-instagram .social-slide.is-expanded{flex:0 0 82%}#home-instagram .carousel-track{gap:12px}#home-instagram .instagram-card-caption{bottom:30px;min-height:100px}}
+@media(prefers-reduced-motion:reduce){#home-instagram .social-slide,#home-instagram .social-slide img,#home-instagram .social-slide::after,#home-instagram .instagram-card-caption{transition:none}}

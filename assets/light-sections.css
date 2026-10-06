@@ -1,0 +1,20 @@
+/* Compact, rounded sky-blue sections inspired by the supplied reference. */
+.section.iris-vision-card{background:transparent!important;padding-block:32px}
+.iris-vision-card>.container{background:linear-gradient(110deg,#d8f2ff,#abd9ff);border-radius:30px;padding:40px clamp(24px,4vw,60px)}
+.iris-vision-card .section-mark{display:none}
+.iris-vision-card h2{color:#137f9a!important;margin-bottom:14px;font-size:clamp(28px,3vw,40px)}
+.iris-vision-card p{color:#215a73!important;font-size:17px;line-height:1.6;margin:0}
+.iris-vision-card .split{gap:40px;align-items:start}
+.cta-band{background:linear-gradient(110deg,#d8f2ff,#abd9ff)!important;border-radius:30px;margin:28px auto;width:calc(100% - 48px);max-width:1600px}
+.cta-band .cta-band__bg{display:none}
+.cta-band .cta-band__inner{padding-block:36px;gap:28px}
+.cta-band h2{color:#137f9a!important;font-size:clamp(25px,2.8vw,36px)}
+.cta-band p{color:#215a73!important;font-size:18px}
+.cta-band .btn{background:#fff!important;color:#126c89!important;border-color:#fff!important;box-shadow:none}
+.cta-band .btn:hover{background:#eaf8ff!important}
+.site-footer{background:linear-gradient(110deg,#d8f2ff,#abd9ff)!important;color:#215a73;padding-top:40px;border-top:1px solid #b8dced}
+.site-footer .footer-col h4{color:#126c89}.site-footer a{color:#215a73}.site-footer a:hover{color:#084b68}
+.site-footer .footer-grid{padding-bottom:28px;gap:28px}.site-footer .footer-bottom{padding-block:18px;border-top-color:#9dcde3}
+/* Preserve the social icons' original dark tiles and light glyphs. */
+.site-footer .social-links a{background:#082f44;color:#a9c7d2;border-color:#ffffff2e}
+@media(max-width:700px){.iris-vision-card>.container{width:calc(100% - 32px);padding:28px 22px;border-radius:24px}.iris-vision-card .split{gap:26px}.cta-band{width:calc(100% - 32px);border-radius:24px}.cta-band .cta-band__inner{padding-block:28px}.cta-band__actions{justify-content:flex-start}}

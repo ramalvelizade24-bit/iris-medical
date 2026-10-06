@@ -1,0 +1,21 @@
+/* Reversible color trial sampled from the supplied reference: #6CB3DA. */
+:root{--trial-blue:#6cb3da;--navigation-gray:#6cb3da;--navigation-ink:#123e58;--navigation-active:#082f44;--accent-color:#6cb3da;--secondary-color:#32759b;--surface-color:#e8f4fb;--surface-alt:#d8edf8;--line-color:#beddef;--background-color:#edf7fc}
+body{background:#edf7fc!important}
+.btn[href="#contact"],.btn[href="#contact"]:hover{color:#fff!important}
+.site-header,.site-header.is-stuck,.iris-internal-header{background:#fff!important;border-bottom-color:#e2e9ee!important}
+.iris-hero-banner{background:#6cb3da!important}
+.iris-hero-banner .hero-background{opacity:.16!important}
+.iris-hero-copy{position:relative;z-index:1}
+.iris-hero-copy h1,.iris-hero-copy p{color:#082f44!important}
+.btn,.whatsapp-order,.all-products-action .btn{background:#6cb3da!important;color:#082f44!important;border-color:#94cae7!important}
+.btn:hover,.whatsapp-order:hover{background:#91c9e8!important;color:#082f44!important}
+.feature__icon,.carousel-arrow,.nav-toggle{--navigation-gray:#dedee0;--navigation-active:#004982;--accent-color:#2fb6a8;--secondary-color:#4a90a4}
+.section--surface{background:#e8f4fb!important}
+.section--dark{background:#6cb3da!important;color:#082f44!important}
+.section--dark h2,.section--dark p{color:#082f44!important}
+.section-mark{color:#32759b}
+.section-mark::before,.section-mark::after{background:#6cb3da!important}
+.iris-language-select{border-color:#91c7e5!important}
+.shell{background:#edf7fc!important}
+#category-panel button.is-selected{background:#c9e6f6!important;color:#082f44!important;box-shadow:inset 3px 0 #6cb3da}
+@media(max-width:1024px){.main-nav{background:#fff!important}}

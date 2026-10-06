@@ -1,0 +1,10 @@
+/* Original caption appearance; gentle photo motion on mouse hover only. */
+.section:has(+ #team){padding-bottom:28px}
+#team{padding-top:32px}
+#team .section-head{margin-bottom:32px}
+.iris-team-caption{position:relative;background:#fff}
+.iris-team-caption h3{color:#0b506b}
+.iris-team-caption p{color:#557383}
+.iris-team-card img{transform-origin:center;transition:transform .45s ease}
+@media(hover:hover) and (pointer:fine){.iris-team-card img:hover{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){.iris-team-card img{transition:none}.iris-team-card img:hover{transform:none}}
