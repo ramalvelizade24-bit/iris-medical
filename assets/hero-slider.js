@@ -1,8 +1,8 @@
 (()=>{
 const banner=document.querySelector('.iris-hero-banner');if(!banner)return;
 banner.classList.add('is-eye-slide');
-const imagePaths=['hero-examination.png','hero-diagnostics.png','hero-contact-eye.png'];
-const visuals=imagePaths.map((path,index)=>{const visual=document.createElement('img');visual.className='hero-product-visual'+(index<2?' hero-doctor-visual':'');visual.src=new URL('../public/instagram/'+path,document.currentScript.src).href;visual.alt='';visual.setAttribute('aria-hidden','true');visual.style.opacity=index===0?'1':'0';banner.prepend(visual);return visual});
+const imagePaths=['hero-examination.webp','hero-diagnostics.webp','hero-contact-eye.webp'];
+const visuals=imagePaths.map((path,index)=>{const visual=index===0?banner.querySelector('.hero-product-visual')||document.createElement('img'):document.createElement('img');visual.className='hero-product-visual'+(index<2?' hero-doctor-visual':'');visual.decoding='async';visual.fetchPriority=index===0?'high':'low';visual.src=new URL('../public/instagram/'+path,document.currentScript.src).href;visual.alt='';visual.setAttribute('aria-hidden','true');visual.style.opacity=index===0?'1':'0';if(!visual.parentElement)banner.prepend(visual);return visual});
 const copy=banner.querySelector('.iris-hero-copy');
 const texts=[
  ['Göz sağlamlığında etibarlı tərəfdaşınız','Oftalmologiya üçün müasir diaqnostik cihazlar, cərrahi avadanlıq və steril sərf materialları.'],
