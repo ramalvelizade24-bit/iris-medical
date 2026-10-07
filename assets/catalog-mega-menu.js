@@ -5,7 +5,7 @@
  const toolbar=document.createElement('div');toolbar.className='catalog-quick-actions';
  const searchToggle=document.createElement('button');searchToggle.type='button';searchToggle.className='catalog-search-toggle';searchToggle.setAttribute('aria-label','Məhsul axtar');searchToggle.setAttribute('aria-expanded','false');searchToggle.setAttribute('aria-controls','search');
  searchToggle.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>';
- search.before(toolbar);toolbar.append(searchToggle,button);search.hidden=!search.value;
+ search.before(toolbar);toolbar.append(button,searchToggle);search.hidden=!search.value;
  searchToggle.setAttribute('aria-expanded',String(!search.hidden));
  searchToggle.addEventListener('click',()=>{search.hidden=!search.hidden;searchToggle.setAttribute('aria-expanded',String(!search.hidden));if(!search.hidden)search.focus()});
  search.addEventListener('keydown',e=>{if(e.key==='Escape'){search.hidden=true;searchToggle.setAttribute('aria-expanded','false');searchToggle.focus()}});
