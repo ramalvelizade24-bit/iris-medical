@@ -1,7 +1,7 @@
 (()=>{
  const search=document.querySelector('#search');if(!search)return;
  const button=document.createElement('button');button.type='button';button.className='catalog-all-button';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls','catalog-all-menu');
- button.innerHTML='<span aria-hidden="true">☷</span> <span>Bütün məhsullar</span>';
+ button.innerHTML='<span aria-hidden="true">☷</span> <span>Məhsul kataloqu</span>';
  const toolbar=document.createElement('div');toolbar.className='catalog-quick-actions';
  const searchToggle=document.createElement('button');searchToggle.type='button';searchToggle.className='catalog-search-toggle';searchToggle.setAttribute('aria-label','Məhsul axtar');searchToggle.setAttribute('aria-expanded','false');searchToggle.setAttribute('aria-controls','search');
  searchToggle.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>';
