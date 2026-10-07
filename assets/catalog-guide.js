@@ -1,0 +1,25 @@
+(()=>{
+ const area=document.querySelector('.product-area'),filters=document.querySelector('.filters');if(!area||!filters)return;
+ const data=window.IRIS_GUIDE_PRODUCTS||[];
+ const launcher=document.createElement('button');launcher.type='button';launcher.className='guide-launcher';launcher.setAttribute('aria-expanded','false');launcher.setAttribute('aria-controls','iris-guide');launcher.innerHTML='<img src="../assets/catalog-guide-robot.png" alt=""><span>Məhsul bələdçisi<small>Məhsulu tapın, sual verin</small></span>';filters.prepend(launcher);
+ const panel=document.createElement('section');panel.id='iris-guide';panel.className='iris-guide';panel.hidden=true;panel.setAttribute('aria-label','Məhsul bələdçisi');
+ panel.innerHTML='<div class="guide-heading"><div><h2>Məhsul bələdçisi</h2><p>Kataloqda axtarın və ya sualınızı mütəxəssisə göndərin.</p></div><button type="button" class="guide-close" aria-label="Bağla">×</button></div><p class="guide-intro">Məhsulun adını, nömrəsini və ya növünü yazın. Qiymət, mövcudluq və ətraflı məsləhət üçün WhatsApp vasitəsilə komandamızla əlaqə saxlaya bilərsiniz.</p><div class="guide-suggestions"><button type="button">Lazer</button><button type="button">Mikroskop</button><button type="button">Fako</button><button type="button">Qiymət və mövcudluq</button></div><form class="guide-form"><label for="guide-question">Sualınız və ya axtardığınız məhsul</label><div><input id="guide-question" maxlength="500" autocomplete="off" placeholder="Məsələn: MICROLASE və ya #793"><button type="submit">Axtar</button></div></form><p class="guide-status" role="status" aria-live="polite"></p><div class="guide-results"></div><a class="guide-whatsapp" target="_blank" rel="noopener">WhatsApp-da mütəxəssisə yazın ↗</a>';
+ area.prepend(panel);
+ const input=panel.querySelector('input'),status=panel.querySelector('.guide-status'),results=panel.querySelector('.guide-results'),wa=panel.querySelector('.guide-whatsapp');
+ function whatsapp(text){wa.href='https://wa.me/994512521701?text='+encodeURIComponent('Salam! Məhsul haqqında sualım var: '+(text||'Məhsul seçimi üçün kömək istəyirəm.'));}
+ whatsapp('');
+ const norm=s=>String(s).toLocaleLowerCase('az').replace(/ı/g,'i').normalize('NFD').replace(/\p{M}/gu,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+ function search(){const raw=input.value.trim();results.replaceChildren();whatsapp(raw);if(!raw){status.textContent='Məhsulun adını, nömrəsini və ya növünü yazın.';return;}
+  let q=norm(raw).replace(/лазер\w*/g,'lazer').replace(/микроскоп\w*/g,'mikroskop').replace(/фако\w*/g,'fako').replace(/линз\w*/g,'linza');
+  const words=q.split(' ').filter(w=>w.length>1&&!['haqqinda','melumat','verin','nedir','ucun','qiymeti','qiymet','var','сколько','стоит','цена','есть','ли','покажи','найти','про','the','price','of'].includes(w));
+  const scored=data.map(p=>{const name=norm(p.name+' '+p.number),category=norm(p.category);let score=0;for(const w of words){if(name.includes(w))score+=4;else if(category.includes(w))score+=2;else if(norm(p.description).includes(w))score+=1;}return {p,score};}).filter(x=>words.length&&x.score>=Math.max(2,words.length)).sort((a,b)=>b.score-a.score);
+  status.textContent=scored.length?scored.length+' uyğun məhsul tapıldı. İlk '+Math.min(scored.length,6)+' nəticə:':'Uyğun məhsul tapılmadı. Məhsulun adını dəqiqləşdirin və ya sualınızı WhatsApp-da göndərin.';
+  if(/qiym|movcud|цена|налич|price|stock/.test(q))status.textContent='Qiymət və mövcudluğu komandamız təsdiqləyir. Sualınızı aşağıdakı WhatsApp düyməsi ilə göndərə bilərsiniz.';
+  for(const {p}of scored.slice(0,6)){const card=document.createElement('article');card.className='guide-result';const title=document.createElement('a');title.href=p.href;title.target='_top';title.textContent=p.name;const meta=document.createElement('small');meta.textContent='Iris Medical · #'+p.number;const desc=document.createElement('p');desc.textContent=p.description;const ask=document.createElement('a');ask.className='guide-product-question';ask.target='_blank';ask.rel='noopener';ask.href='https://wa.me/994512521701?text='+encodeURIComponent('Salam! '+p.name+' (#'+p.number+') haqqında sualım: '+raw);ask.textContent='Bu məhsul haqqında soruşun ↗';card.append(title,meta,desc,ask);results.append(card);}
+ }
+ panel.querySelector('form').addEventListener('submit',e=>{e.preventDefault();search()});
+ panel.querySelectorAll('.guide-suggestions button').forEach(b=>b.addEventListener('click',()=>{input.value=b.textContent;search()}));
+ input.addEventListener('input',()=>whatsapp(input.value.trim()));
+ function toggle(open){panel.hidden=!open;launcher.setAttribute('aria-expanded',String(open));if(open){panel.scrollIntoView({behavior:'smooth',block:'start'});input.focus({preventScroll:true});}else launcher.focus({preventScroll:true});}
+ launcher.addEventListener('click',()=>toggle(panel.hidden));panel.querySelector('.guide-close').addEventListener('click',()=>toggle(false));panel.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false)});
+})();
