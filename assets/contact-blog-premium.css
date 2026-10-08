@@ -1,0 +1,9 @@
+:is(#page-blog,#page-contact) .page-hero{
+  background:radial-gradient(ellipse at 0 0,#172f73 0,transparent 48%),radial-gradient(ellipse at 100% 0,#003b86 0,transparent 39%),#05070d!important;
+  color:#fff;
+  border-radius:38px;
+}
+:is(#page-blog,#page-contact) .page-hero h1{color:#fff!important}
+:is(#page-blog,#page-contact) .page-hero :is(p,nav,.breadcrumbs,.breadcrumbs li,.breadcrumbs a,nav a){color:#c5cad5!important}
+:is(#page-blog,#page-contact) .page-hero .breadcrumbs a:hover{color:#fff!important}
+@media(max-width:800px){:is(#page-blog,#page-contact) .page-hero{border-radius:26px}}
