@@ -10,4 +10,5 @@
 @media(min-width:1600px){.career-hero{min-height:590px}.career-hero .career-art{height:630px}}
 @media(max-width:800px){.career-section{padding-top:32px}.career-hero{grid-template-columns:1fr;padding:0 24px;gap:16px}.career-hero>div:first-child{padding:32px 4px 0}.career-hero h1{font-size:clamp(32px,7vw,48px);margin-bottom:28px}.career-hero .career-art{width:100%;max-width:450px;height:390px;margin:0 auto}.career-hero .career-apply{margin-top:0}.career-hero::before{border-radius:28px}}
 
-.career-hero{grid-template-columns:1fr;min-height:0;padding:0 clamp(28px,7vw,100px)}.career-hero>div:first-child{padding:48px 0}.career-hero h1{max-width:900px}.career-hero .career-apply{margin-top:0}
+
+.career-art .career-photo{object-fit:contain;object-position:center bottom}
