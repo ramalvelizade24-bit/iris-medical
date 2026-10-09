@@ -14,3 +14,5 @@
 .career-art .career-photo{object-fit:contain;object-position:center bottom}
 
 .career-hero .lead.career-intro{display:block;color:#fff;font-size:17px;line-height:1.6;max-width:460px;margin:0 0 22px}
+
+.career-hero h1{margin-bottom:22px}.career-hero .lead.career-intro{margin-bottom:32px}

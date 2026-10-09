@@ -2,3 +2,8 @@
 
 
 body>.guide-launcher{position:fixed;right:24px;bottom:100px;z-index:10020;width:66px;height:72px;padding:5px;justify-content:center;border-radius:20px;box-shadow:0 8px 26px #12384d25}body>.guide-launcher[hidden]{display:none!important}body>.guide-launcher>span{display:none}body>.guide-launcher img{width:54px;height:62px}body>.iris-guide{box-sizing:border-box;position:fixed;right:24px;bottom:184px;width:410px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 210px);overflow-y:auto;overscroll-behavior:contain;z-index:10021;margin:0;padding:20px;box-shadow:0 16px 60px #12384d30;background:#f6f9fd;font-family:Arial,sans-serif}body>.iris-guide .guide-results{grid-template-columns:1fr}body>.iris-guide .guide-heading h2{font-size:21px}body>.iris-guide .guide-heading p{margin:8px 0}body>.iris-guide .guide-form>div{flex-wrap:wrap}body>.iris-guide .guide-form input{width:100%;box-sizing:border-box}body>.iris-guide .guide-whatsapp{line-height:1.5}@media(max-width:540px){body>.guide-launcher{right:16px;bottom:94px;width:58px;height:64px}body>.guide-launcher img{width:47px;height:54px}body>.iris-guide{right:16px;bottom:170px;max-height:calc(100dvh - 190px);padding:16px}}
+/* In the product catalog, the guide replaces the floating WhatsApp shortcut. */
+body:has(>.guide-launcher:not([hidden])) .whatsapp-fab{display:none!important}
+body>.guide-launcher{bottom:24px}
+body>.iris-guide{bottom:108px;max-height:calc(100dvh - 132px)}
+@media(max-width:540px){body>.guide-launcher{bottom:20px}body>.iris-guide{bottom:96px;max-height:calc(100dvh - 116px)}}
