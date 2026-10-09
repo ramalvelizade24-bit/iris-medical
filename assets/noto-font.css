@@ -1,0 +1,7 @@
+@font-face{font-family:'Iris Noto Sans';src:url('fonts/NotoSans-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Iris Noto Sans';src:url('fonts/NotoSans-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Iris Noto Sans';src:url('fonts/NotoSans-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Iris Noto Sans';src:url('fonts/NotoSans-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap}
+html body,html body *{font-family:'Iris Noto Sans',Arial,sans-serif!important}
+html body h1,html body h2,html body h3,html body h4,html body strong,html body b{font-weight:700}
+.career-modal .career-submit,.category,#category-panel button,#category-panel summary,.filters select{font-family:'Iris Noto Sans',Arial,sans-serif!important}
