@@ -1,13 +1,13 @@
 window.IRIS_SOCIAL_CONTENT = { instagram: [
- {image:"public/instagram/refraction-unit.png",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — AARU-2000 Elegant"},
- {image:"public/instagram/yag-laser.png",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — YAG Laser 307"},
- {image:"public/instagram/refractometer.png",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — AARK-7000"},
- {image:"public/instagram/feather-knives.png",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — Feather"},
- {image:"public/instagram/galaxy-turbo.png",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — Galaxy Turbo Orbit"}
+ {image:"public/instagram/refraction-unit-optimized.webp",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — AARU-2000 Elegant"},
+ {image:"public/instagram/yag-laser-optimized.webp",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — YAG Laser 307"},
+ {image:"public/instagram/refractometer-optimized.webp",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — AARK-7000"},
+ {image:"public/instagram/feather-knives-optimized.webp",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — Feather"},
+ {image:"public/instagram/galaxy-turbo-optimized.webp",url:"https://www.instagram.com/iris_medikal/",alt:"Iris Medical — Galaxy Turbo Orbit"}
 ], partners: [
- {image:"public/partners/appasamy.png",alt:"Appasamy Associates"},
+ {image:"public/partners/appasamy-optimized.webp",alt:"Appasamy Associates"},
  {image:"public/partners/micromed.png",alt:"Micromed"},
- {image:"public/partners/cenefom.png",alt:"Cenefom"},
+ {image:"public/partners/cenefom-optimized.webp",alt:"Cenefom"},
  {image:"public/partners/fiab.png",alt:"FIAB"},
  {image:"public/partners/gill-med.png",alt:"Gill Med"},
  {image:"public/partners/enbio.png",alt:"Enbio"},

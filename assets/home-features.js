@@ -1,11 +1,11 @@
 (()=>{
 const content=window.IRIS_SOCIAL_CONTENT||{};
 const mainPartners=[
- {image:'assets/partners-home/prime-national-hospital.png',alt:'Prime National Hospital'},
- {image:'assets/partners-home/avrasiya-hospital.png',alt:'Avrasiya Hospital'},
- {image:'assets/partners-home/amt-klinika.png',alt:'AMT Klinika'},
- {image:'assets/partners-home/funda-hospital.png',alt:'Funda Hospital'},
- {image:'assets/partners-home/kepez-hospital.png',alt:'Kəpəz Hospital'},
+ {image:'assets/partners-home/prime-national-hospital-optimized.webp',alt:'Prime National Hospital'},
+ {image:'assets/partners-home/avrasiya-hospital-optimized.webp',alt:'Avrasiya Hospital'},
+ {image:'assets/partners-home/amt-klinika-optimized.webp',alt:'AMT Klinika'},
+ {image:'assets/partners-home/funda-hospital-optimized.webp',alt:'Funda Hospital'},
+ {image:'assets/partners-home/kepez-hospital-optimized.webp',alt:'Kəpəz Hospital'},
  {image:'assets/partners-home/batigoz.webp',alt:'Batıgöz'}
 ];
 for(const key of ['instagram','partners']){
