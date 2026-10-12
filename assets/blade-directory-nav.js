@@ -15,7 +15,7 @@
   toggle.before(link);toggle.querySelector('span')?.remove();
   toggle.style.cssText='display:inline-flex;width:44px;min-height:44px;align-items:center;justify-content:center;vertical-align:middle';
   toggle.setAttribute('aria-label','Oftalmik bıçaqlar');
-  const list=toggle.nextElementSibling;list.id='blade-category-list';toggle.setAttribute('aria-controls',list.id);list.hidden=false;toggle.setAttribute('aria-expanded','true');
+  const list=toggle.nextElementSibling;list.id='blade-category-list';toggle.setAttribute('aria-controls',list.id);list.hidden=true;toggle.setAttribute('aria-expanded','false');
   if(!list.querySelector('[data-ophthalmic-category="Micro Incision Blade"]')){const micro=document.createElement('button');micro.type='button';micro.dataset.ophthalmicCategory='Micro Incision Blade';micro.textContent='Mikrokəsik bıçaqları';list.prepend(micro);}
  }
 })();
