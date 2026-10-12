@@ -7,7 +7,7 @@
       ? window.irisOrderMessage(product)
       : `Salam! ${product} məhsulunu sifariş etmək istəyirəm. Zəhmət olmasa, qiymət və mövcudluq barədə məlumat verin.`;
     for (const link of links) {
-      link.href = 'https://wa.me/994512521701?text=' + encodeURIComponent(message);
+      link.href = 'https://wa.me/994554220644?text=' + encodeURIComponent(message);
       link.target = '_blank';
       link.rel = 'noopener';
     }
