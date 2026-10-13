@@ -3,6 +3,10 @@
 /* Equal image frames keep intrinsic image sizes from stretching cards. */
 :is(.blade-products,.grid)>.card{display:flex!important;flex-direction:column!important;min-width:0;min-height:0!important;height:auto!important;overflow:hidden;box-sizing:border-box}
 :is(.blade-products,.grid)>.card[hidden]{display:none!important}
+body :is(.blade-groups,.blade-products,.blade-list)[hidden]{display:none!important}
+.cannula-use-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}
+.cannula-use-options a[aria-current="page"]{border-color:#08778a;background:#eaf7f8}
+@media(max-width:540px){.cannula-use-options{grid-template-columns:1fr}}
 :is(.blade-products,.grid)>.card>.photo{display:flex!important;align-items:center;justify-content:center;box-sizing:border-box;flex:0 0 230px;height:230px!important;min-height:0!important;width:100%;padding:18px!important;overflow:hidden;background:#fff!important;border-bottom:1px solid #e7edf2}
 :is(.blade-products,.grid)>.card>.photo img{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;margin:0!important}
 :is(.blade-products,.grid)>.card>.copy{display:flex;flex-direction:column;flex:1;min-width:0;padding:18px!important;box-sizing:border-box}
