@@ -12,3 +12,5 @@ Object.assign(window.IRIS_LOCALES["en"],{"Appa Blade":"Appa Blade","Appa Blade /
 Object.assign(window.IRIS_LOCALES.en,{"MICROGAS C3F8 MIXED — vitreoretinal cərrahiyyə üçün azotla əvvəlcədən qarışdırılmış 12% C3F8 qazıdır. Məhsul kodu: MMD-787. İstifadə istehsalçının təlimatına uyğun aparılmalıdır.":"MICROGAS C3F8 MIXED is a premixed 12% C3F8 gas with nitrogen for vitreoretinal surgery. Product code: MMD-787. Follow the manufacturer’s instructions."});
 
 Object.assign(window.IRIS_LOCALES.en,{"Methylcellulose":"Methylcellulose","Sodium Hyaluronate":"Sodium Hyaluronate","Viskoelastik məhlullar — Methylcellulose":"Viscoelastic solutions — Methylcellulose","Viskoelastik məhlullar — Sodium Hyaluronate":"Viscoelastic solutions — Sodium Hyaluronate"});
+
+Object.assign(window.IRIS_LOCALES.en,{"Qatılıq variantları":"Concentration options","Qatılıq":"Concentration","Həcm":"Volume","Məhsul haqqında":"About the product"});

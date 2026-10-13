@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+<title id="title">APPAVISC PFS 2.4 — 3 mL</title><desc id="desc">Vector illustration of the turquoise and white Appavisc PFS 2.4 packaging, based on the supplied product photograph.</desc>
+<defs><linearGradient id="front" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#e4f3f8"/></linearGradient><linearGradient id="edge" x2="0" y2="1"><stop stop-color="#087e93"/><stop offset="1" stop-color="#04566c"/></linearGradient><radialGradient id="shadow"><stop stop-color="#183e53" stop-opacity=".2"/><stop offset="1" stop-color="#183e53" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="485" cy="391" rx="425" ry="38" fill="url(#shadow)"/>
+<path d="M83 139 831 121 879 155 129 174Z" fill="#edf8fb" stroke="#c1e3ec" stroke-width="2"/>
+<path d="M83 139 129 174 129 375 83 339Z" fill="url(#edge)"/>
+<path d="M129 174 879 155 879 355 129 375Z" fill="url(#front)" stroke="#b1d6e1" stroke-width="2"/>
+<path d="M129 174 879 155 879 174 129 193Z" fill="#007d95"/>
+<path d="M129 196 879 177M129 201 879 182M129 206 879 187" stroke="#6ac2d1" stroke-width="2"/>
+<g font-family="Arial,sans-serif" transform="matrix(1,-.025,0,1,0,0)">
+<text x="165" y="245" font-size="22" fill="#263e4b">Hydroxypropyl Methyl Cellulose Ophthalmic Solution USP</text>
+<text x="818" y="224" font-size="17" fill="#38525f">3mL</text>
+<text x="166" y="284" font-size="28" font-weight="700" fill="#05798c">APPAVISC <tspan fill="#e36d85">PFS 2.4</tspan></text>
+<text x="166" y="343" font-size="14" fill="#38525f">PRESERVATIVE FREE</text><text x="166" y="362" font-size="14" fill="#38525f">STERILE SOLUTION</text>
+</g>
+<path d="M529 292 879 283 879 337 685 342Z" fill="#57b9cf"/>
+<path d="M129 354 521 344 571 357 129 369Z" fill="#038b9e"/>
+<path d="M129 349 530 339 587 356 571 357 521 344 129 354Z" fill="#b1e5ed"/>
+</svg>
