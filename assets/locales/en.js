@@ -16,3 +16,7 @@ Object.assign(window.IRIS_LOCALES.en,{"Methylcellulose":"Methylcellulose","Sodiu
 Object.assign(window.IRIS_LOCALES.en,{"Qatılıq variantları":"Concentration options","Qatılıq":"Concentration","Həcm":"Volume","Məhsul haqqında":"About the product"});
 
 Object.assign(window.IRIS_LOCALES.en,{"Ariavisc HA — gözdaxili istifadə üçün natrium hialuronat əsaslı viskoelastik məhluldur. Qablaşdırmada inyeksiya üçün kanyula göstərilir.":"Ariavisc HA is a sodium hyaluronate viscoelastic solution for intraocular use. The packaging indicates a cannula for injection."});
+
+Object.assign(window.IRIS_LOCALES.en,{"Bizə qoşulun":"Join us","Karyera imkanları":"Career opportunities"});
+
+Object.assign(window.IRIS_LOCALES.en,{"Instagram-da bizə qoşulun":"Join us on Instagram"});

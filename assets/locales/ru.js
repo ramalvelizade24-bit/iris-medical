@@ -16,3 +16,7 @@ Object.assign(window.IRIS_LOCALES.ru,{"Methylcellulose":"Метилцеллюл�
 Object.assign(window.IRIS_LOCALES.ru,{"Qatılıq variantları":"Варианты концентрации","Qatılıq":"Концентрация","Həcm":"Объём","Məhsul haqqında":"Описание товара"});
 
 Object.assign(window.IRIS_LOCALES.ru,{"Ariavisc HA — gözdaxili istifadə üçün natrium hialuronat əsaslı viskoelastik məhluldur. Qablaşdırmada inyeksiya üçün kanyula göstərilir.":"Ariavisc HA — вискоэластический раствор на основе гиалуроната натрия для внутриглазного применения. На упаковке указана канюля для введения."});
+
+Object.assign(window.IRIS_LOCALES.ru,{"Bizə qoşulun":"Присоединяйтесь к нам","Karyera imkanları":"Карьерные возможности"});
+
+Object.assign(window.IRIS_LOCALES.ru,{"Instagram-da bizə qoşulun":"Присоединяйтесь в Instagram"});
