@@ -1,9 +1,2 @@
-/* One neutral palette for the site's light backgrounds. */
-:root{--iris-light-background:#f0f3f2;--background-color:#f0f3f2;--surface-color:#f0f3f2;--surface-alt:#e7ece9;--line-color:#d9e2dc}
-body,body .shell,body .page,body .section--surface,body .section--dark,body .iris-hero-banner,body .career-join-banner{background:var(--iris-light-background)!important}
-body #page-about .about-premium-section{background:var(--iris-light-background)!important}
-body .iris-vision-card>.container,body .cta-band,body .site-footer{background:var(--iris-light-background)!important}
-body .site-footer{border-top-color:#d9e2dc!important}
-body .site-footer .footer-bottom{border-top-color:#d9e2dc!important}
-/* A quiet outline keeps the rounded banner visible on the matching page. */
-body .career-join-banner{box-sizing:border-box;border:1px solid #dce3df;box-shadow:0 10px 34px #183e2810}
+/* Apply the neutral background only to the lower Instagram banner. */
+body .career-join-banner{background:#f0f3f2!important;box-sizing:border-box;border:1px solid #dce3df;box-shadow:0 10px 34px #183e2810}
