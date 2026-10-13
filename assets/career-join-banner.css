@@ -1,8 +1,9 @@
-.career-join-banner{background:#f1f4f3;margin:48px 0;overflow:hidden}
+.career-join-banner{background:#f0f3f2!important;width:calc(100% - 48px);max-width:1600px;margin:48px auto;border-radius:30px;overflow:hidden}
+.career-join-banner>.container,.career-join-copy{background:transparent!important}
 .career-join-banner>.container{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;min-height:340px;padding-block:34px}
 .career-join-copy{padding-block:26px;position:relative;z-index:1}
 .career-join-copy h2{color:#18251f!important;font-size:clamp(34px,4.8vw,68px);line-height:1.12;letter-spacing:-1.4px;margin:0 0 32px;max-width:680px}
 .career-join-copy .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;min-height:54px!important}
 .career-join-copy .btn svg{flex:none;width:25px;height:25px}
 .career-join-art{display:block;width:100%;max-width:680px;height:330px;object-fit:contain;object-position:center}
-@media(max-width:800px){.career-join-banner>.container{grid-template-columns:1fr;gap:0;padding-block:24px;min-height:0}.career-join-copy{text-align:center;padding-block:20px}.career-join-copy h2{margin:0 auto 24px;letter-spacing:-.7px}.career-join-art{height:245px;margin:auto;max-width:500px}}
+@media(max-width:800px){.career-join-banner{width:calc(100% - 32px);border-radius:24px;margin-block:28px}.career-join-banner>.container{grid-template-columns:1fr;gap:0;padding-block:24px;min-height:0}.career-join-copy{text-align:center;padding-block:20px}.career-join-copy h2{margin:0 auto 24px;letter-spacing:-.7px}.career-join-art{height:245px;margin:auto;max-width:500px}}

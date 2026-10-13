@@ -1,16 +1,16 @@
 :root{--iris-gold:#bb8624;--iris-gold-border:#b68a32;--iris-gold-ink:#34270c;--iris-gold-fill:linear-gradient(115deg,#d8ad50,#f8e6ac 52%,#d9b459);--iris-gold-soft:#fff8e9}
 :is(.btn,.catalog-all-button,.category-trigger,.product-order-button,.career-submit,.guide-form button,.order-form button[type=submit]){min-height:48px!important;box-sizing:border-box;border:1px solid var(--iris-gold-border)!important;border-radius:14px!important;background:var(--iris-gold-fill)!important;color:var(--iris-gold-ink)!important;box-shadow:0 4px 12px #8e661c20!important;font-weight:700!important;cursor:pointer;transition:background .18s,box-shadow .18s,transform .18s}
 :is(.btn,.catalog-all-button,.category-trigger,.career-submit,.guide-form button,.order-form button[type=submit]){padding:12px 22px!important;line-height:1.4!important}
-:is(.catalog-search-toggle,.catalog-reset,.accordion-trigger,.guide-close,.career-close,.order-close){min-width:44px!important;min-height:44px!important;border:1px solid #dfc486!important;background:var(--iris-gold-soft)!important;color:var(--iris-gold-ink)!important;cursor:pointer}
+:is(.catalog-reset,.guide-close,.career-close,.order-close){min-width:44px!important;min-height:44px!important;border:1px solid #dfc486!important;background:var(--iris-gold-soft)!important;color:var(--iris-gold-ink)!important;cursor:pointer}
+:is(.catalog-search-toggle,.accordion-trigger){min-width:44px!important;min-height:44px!important;cursor:pointer}
+.catalog-search-toggle svg,.catalog-all-button>[aria-hidden],.category-trigger>i,#category-panel .accordion-chevron,#category-panel .accordion-trigger{color:#08778a!important}
 .catalog-reset{border-radius:12px!important;padding:10px 16px!important}
 #category-panel button:not(.accordion-trigger){min-height:44px!important;border:1px solid transparent!important;border-radius:10px!important;color:var(--iris-gold-ink)!important;cursor:pointer}
 #category-panel button:not(.accordion-trigger):hover,#category-panel summary:hover{background:#fff3d7!important;border-color:#e4cd94!important}
 #category-panel button.is-selected{background:var(--iris-gold-fill)!important;box-shadow:inset 3px 0 #936514!important;color:var(--iris-gold-ink)!important}
 #category-panel summary{min-height:44px;box-sizing:border-box;cursor:pointer}
-:is(.blade-section-link,.consumable-section-link,.surgical-section-link,.device-section-link,.cannula-section-link){color:var(--iris-gold-ink)!important}
-:is(.blade-section-link,.consumable-section-link):hover{background:var(--iris-gold-soft);border-radius:10px}
-:is(.blade-group,.cannula-use-options .blade-group){border-color:#e3d2a7!important;transition:border-color .18s,box-shadow .18s}
-.blade-group:hover,.cannula-use-options .blade-group[aria-current=page]{border-color:var(--iris-gold-border)!important;box-shadow:0 6px 20px #8e661c18;background:#fffdf7!important}
+:is(.blade-section-link,.consumable-section-link,.surgical-section-link,.device-section-link,.cannula-section-link){color:inherit!important}
+:is(.blade-section-link,.consumable-section-link):hover{background:#eaf7f8;border-radius:10px}
 :is(.btn,.catalog-all-button,.category-trigger,.product-order-button,.career-submit,.guide-form button):hover{box-shadow:0 7px 18px #8e661c30!important;filter:brightness(1.025)}
 :is(.btn,.catalog-all-button,.category-trigger,.product-order-button):active{transform:translateY(1px)}
 :is(button,.btn,.blade-group,.back,.blade-section-link,.consumable-section-link,.surgical-section-link,.device-section-link,.cannula-section-link):focus-visible{outline:3px solid #805508!important;outline-offset:3px!important}
