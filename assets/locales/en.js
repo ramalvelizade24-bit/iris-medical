@@ -14,3 +14,5 @@ Object.assign(window.IRIS_LOCALES.en,{"MICROGAS C3F8 MIXED — vitreoretinal cə
 Object.assign(window.IRIS_LOCALES.en,{"Methylcellulose":"Methylcellulose","Sodium Hyaluronate":"Sodium Hyaluronate","Viskoelastik məhlullar — Methylcellulose":"Viscoelastic solutions — Methylcellulose","Viskoelastik məhlullar — Sodium Hyaluronate":"Viscoelastic solutions — Sodium Hyaluronate"});
 
 Object.assign(window.IRIS_LOCALES.en,{"Qatılıq variantları":"Concentration options","Qatılıq":"Concentration","Həcm":"Volume","Məhsul haqqında":"About the product"});
+
+Object.assign(window.IRIS_LOCALES.en,{"Ariavisc HA — gözdaxili istifadə üçün natrium hialuronat əsaslı viskoelastik məhluldur. Qablaşdırmada inyeksiya üçün kanyula göstərilir.":"Ariavisc HA is a sodium hyaluronate viscoelastic solution for intraocular use. The packaging indicates a cannula for injection."});
