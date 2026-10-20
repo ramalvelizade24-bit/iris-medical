@@ -1,7 +1,14 @@
 (()=>{
- const area=document.querySelector('.product-area'),filters=document.querySelector('.filters');if(!area||!filters)return;
+ const script=document.currentScript;
+ const catalogBase=new URL('../catalog/',script.src);
+ const homeCatalog=document.getElementById('madhu-catalog-frame');
+ const siteBase=new URL('../',script.src);
+ const relativePath=location.pathname.slice(siteBase.pathname.length);
+ if(!homeCatalog&&!/^(catalog|products)\//.test(relativePath))return;
+ try{if(window.parent!==window&&window.parent.document.querySelector('script[src$="catalog-guide.js"]'))return;}catch(e){}
+ if(document.querySelector('.guide-launcher'))return;
  const data=window.IRIS_GUIDE_PRODUCTS||[];
- const launcher=document.createElement('button');launcher.type='button';launcher.className='guide-launcher';launcher.setAttribute('aria-expanded','false');launcher.setAttribute('aria-controls','iris-guide');launcher.innerHTML='<svg class="guide-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9C14 5 8 5 3 7v24c5-2 11-2 16 2V9Zm0 0c5-4 11-4 16-2v12M19 33V9M8 13h6M8 18h6M8 23h5"/><circle cx="29" cy="27" r="6"/><path d="m33.5 31.5 4 4"/></svg><span>Məhsul bələdçisi<small>Məhsulu tapın, sual verin</small></span>';filters.prepend(launcher);
+ const launcher=document.createElement('button');launcher.type='button';launcher.className='guide-launcher';launcher.setAttribute('aria-expanded','false');launcher.setAttribute('aria-controls','iris-guide');launcher.innerHTML='<svg class="guide-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9C14 5 8 5 3 7v24c5-2 11-2 16 2V9Zm0 0c5-4 11-4 16-2v12M19 33V9M8 13h6M8 18h6M8 23h5"/><circle cx="29" cy="27" r="6"/><path d="m33.5 31.5 4 4"/></svg><span>Məhsul bələdçisi<small>Məhsulu tapın, sual verin</small></span>';
  const panel=document.createElement('section');panel.id='iris-guide';panel.className='iris-guide';panel.hidden=true;panel.setAttribute('aria-label','Məhsul bələdçisi');
  panel.innerHTML='<div class="guide-heading"><div><h2>Məhsul bələdçisi</h2><p>Kataloqda axtarın və ya sualınızı mütəxəssisə göndərin.</p></div><button type="button" class="guide-close" aria-label="Bağla">×</button></div><p class="guide-intro">Məhsulun adını, nömrəsini və ya növünü yazın. Qiymət, mövcudluq və ətraflı məsləhət üçün WhatsApp vasitəsilə komandamızla əlaqə saxlaya bilərsiniz.</p><div class="guide-suggestions"><button type="button">Lazer</button><button type="button">Mikroskop</button><button type="button">Fako</button><button type="button">Qiymət və mövcudluq</button></div><form class="guide-form"><label for="guide-question">Sualınız və ya axtardığınız məhsul</label><div><input id="guide-question" maxlength="500" autocomplete="off" placeholder="Məsələn: MICROLASE və ya #793"><button type="submit">Axtar</button></div></form><p class="guide-status" role="status" aria-live="polite"></p><div class="guide-results"></div><a class="guide-whatsapp" target="_blank" rel="noopener">WhatsApp-da mütəxəssisə yazın ↗</a>';
  let host=document;
@@ -9,7 +16,13 @@
 
  launcher.title='Məhsul bələdçisi';launcher.setAttribute('aria-label','Məhsul bələdçisini aç');
  host.body.append(launcher,panel);
- if(host!==document){const sync=()=>{let visible=true;for(let node=window.frameElement;node;node=node.parentElement){if(host.defaultView.getComputedStyle(node).display==='none'){visible=false;break;}}launcher.hidden=!visible;if(!visible){panel.hidden=true;launcher.setAttribute('aria-expanded','false');}};const observer=new host.defaultView.MutationObserver(sync);for(let node=window.frameElement;node;node=node.parentElement)observer.observe(node,{attributes:true,attributeFilter:['class','style','hidden']});sync();}
+ if(homeCatalog){
+  const syncVisibility=()=>{const visible=location.hash==='#services';launcher.hidden=!visible;if(!visible){panel.hidden=true;launcher.setAttribute('aria-expanded','false');}};
+  window.addEventListener('hashchange',syncVisibility);
+  window.addEventListener('pageshow',syncVisibility);
+  syncVisibility();
+ }
+
  const input=panel.querySelector('input'),status=panel.querySelector('.guide-status'),results=panel.querySelector('.guide-results'),wa=panel.querySelector('.guide-whatsapp');
  const language=()=>host.documentElement.lang||'az';
  const translate=s=>(host.defaultView.irisTranslate||window.irisTranslate||((v)=>v))(s);
@@ -24,7 +37,7 @@
   const found={az:n=>`${n} uyğun məhsul tapıldı. Bütün nəticələr:`,en:n=>`${n} matching products. All results:`,ru:n=>`Найдено товаров: ${n}. Все результаты:`,tr:n=>`${n} uygun ürün bulundu. Tüm sonuçlar:`};
   status.textContent=scored.length?(found[language()]||found.az)(scored.length):translate('Uyğun məhsul tapılmadı. Məhsulun adını dəqiqləşdirin və ya sualınızı WhatsApp-da göndərin.');
   if(/qiym|movcud|цена|налич|price|stock/.test(q))status.textContent='Qiymət və mövcudluğu komandamız təsdiqləyir. Sualınızı aşağıdakı WhatsApp düyməsi ilə göndərə bilərsiniz.';
-  for(const {p}of scored){const card=document.createElement('article');card.className='guide-result';const title=document.createElement('a');title.href=new URL(p.href,location.href).href;title.target='_top';title.textContent=translate(p.name);const meta=document.createElement('small');meta.textContent='Iris Medical · #'+p.number;const desc=document.createElement('p');const text=translate(p.description);desc.textContent=text.length>260?text.slice(0,257)+'…':text;desc.setAttribute('data-no-translate','');const ask=document.createElement('a');ask.className='guide-product-question';ask.target='_blank';ask.rel='noopener';ask.href='https://wa.me/994554220644?text='+encodeURIComponent(translate('Salam! Məhsul haqqında sualım var:')+' '+translate(p.name)+' (#'+p.number+'): '+raw);ask.textContent=translate('Bu məhsul haqqında soruşun ↗');card.append(title,meta,desc,ask);results.append(card);}
+  for(const {p}of scored){const card=document.createElement('article');card.className='guide-result';const title=document.createElement('a');title.href=new URL(p.href,catalogBase).href;title.target='_top';title.textContent=translate(p.name);const meta=document.createElement('small');meta.textContent='Iris Medical · #'+p.number;const desc=document.createElement('p');const text=translate(p.description);desc.textContent=text.length>260?text.slice(0,257)+'…':text;desc.setAttribute('data-no-translate','');const ask=document.createElement('a');ask.className='guide-product-question';ask.target='_blank';ask.rel='noopener';ask.href='https://wa.me/994554220644?text='+encodeURIComponent(translate('Salam! Məhsul haqqında sualım var:')+' '+translate(p.name)+' (#'+p.number+'): '+raw);ask.textContent=translate('Bu məhsul haqqında soruşun ↗');card.append(title,meta,desc,ask);results.append(card);}
  }
  panel.querySelector('form').addEventListener('submit',e=>{e.preventDefault();search()});
  panel.querySelectorAll('.guide-suggestions button').forEach(b=>{const value=b.textContent;b.addEventListener('click',()=>{input.value=translate(value);search()})});

@@ -4,7 +4,7 @@
  const supported=['az','en','ru','tr'];
  const normalize=s=>s.replace(/\s+/g,' ').trim();
  const nodes=new WeakMap(),attributes=new WeakMap(),searchNames=new WeakMap();
- let lang='az',version=0,scheduled=false;
+ let lang='az',version=0,scheduled=false,initialized=false;
  const loaded={az:Promise.resolve()},uiLabels={az:'Dil',en:'Language',ru:'Язык',tr:'Dil'};
  const query=new URL(location.href).searchParams.get('lang');
  let saved;try{saved=localStorage.getItem('iris-language')}catch{}
@@ -45,11 +45,11 @@
   for(const card of document.querySelectorAll('.card[data-name]')){if(!searchNames.has(card))searchNames.set(card,card.dataset.name);card.dataset.name=searchNames.get(card)+' '+(card.querySelector('h2')?.textContent||'').toLowerCase()}
   observer.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','alt','title']});
  }
- const observer=new MutationObserver(()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;apply()})});
+ const observer=new MutationObserver(records=>{if(scheduled||!records.some(record=>!skip(record.target.nodeType===1?record.target:record.target.parentElement)))return;scheduled=true;setTimeout(()=>{scheduled=false;apply()},100)});
  function load(code){if(loaded[code])return loaded[code];loaded[code]=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL('locales/'+code+'.js',assetBase);script.onload=()=>{for(const [source,value] of Object.entries(window.IRIS_LOCALES?.[code]||{})){if(source!==value&&!Object.hasOwn(window.IRIS_LOCALES[code],value))reverse.set(normalize(value),source)}resolve()};script.onerror=()=>{delete loaded[code];reject(Error('Language unavailable'))};document.head.append(script)});return loaded[code]}
- async function select(code,broadcast=true){if(!supported.includes(code))return;const current=++version;selector.disabled=true;try{await load(code);if(current!==version)return;lang=code;try{localStorage.setItem('iris-language',code)}catch{}try{const url=new URL(location.href);url.searchParams.set('lang',code);history.replaceState(history.state,'',url.href)}catch{}apply();document.dispatchEvent(new CustomEvent('iris-language-change',{detail:{language:lang}}));if(broadcast)for(const frame of document.querySelectorAll('iframe'))frame.contentWindow?.postMessage({type:'iris-language',language:code},'*')}catch{selector.value=lang}finally{if(current===version)selector.disabled=false}}
+ async function select(code,broadcast=true){if(!supported.includes(code))return;if(initialized&&code===lang&&!selector.disabled)return;const current=++version;selector.disabled=true;try{await load(code);if(current!==version)return;lang=code;initialized=true;if(broadcast&&window.self===window.top)try{localStorage.setItem('iris-language',code)}catch{}try{const url=new URL(location.href);url.searchParams.set('lang',code);history.replaceState(history.state,'',url.href)}catch{}apply();document.dispatchEvent(new CustomEvent('iris-language-change',{detail:{language:lang}}));if(broadcast)for(const frame of document.querySelectorAll('iframe'))frame.contentWindow?.postMessage({type:'iris-language',language:code},'*')}catch{selector.value=lang}finally{if(current===version)selector.disabled=false}}
  selector.addEventListener('change',()=>select(selector.value));
- window.addEventListener('storage',e=>{if(e.key==='iris-language')select(e.newValue,false)});
+ // Language is selected per tab. Storage is only the default for newly opened pages.
  window.addEventListener('message',event=>{if(event.source===window.parent&&window.parent!==window&&event.data?.type==='iris-language')select(event.data.language,false);if(event.data?.type==='iris-language-ready'&&[...document.querySelectorAll('iframe')].some(f=>f.contentWindow===event.source))event.source.postMessage({type:'iris-language',language:lang},'*')});
  document.addEventListener('click',event=>{const a=event.target.closest('a[href]');if(!a)return;const raw=a.getAttribute('href');if(!raw||raw.startsWith('#'))return;const url=new URL(a.href);if(url.origin!==location.origin||!url.pathname.endsWith('.html'))return;url.searchParams.set('lang',lang);a.href=url.href},true);
  if(window.parent!==window)window.parent.postMessage({type:'iris-language-ready'},'*');

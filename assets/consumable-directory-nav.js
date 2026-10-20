@@ -1,6 +1,6 @@
 (()=>{
- const routes={viscoelastic:{page:'viscoelastic-solutions.html',label:'Viskoelastik məhlullar'},silicone:{page:'silicone-oils.html',label:'Silikon yağları'}};
- const go=(page,group,use)=>{const url=new URL(page,location.href);url.searchParams.set('lang',document.documentElement.lang||'az');if(group)url.searchParams.set('group',group);if(use)url.searchParams.set('use',use);window.top.location.href=url.href;};
+ const routes={viscoelastic:{page:'viscoelastic-solutions.html',label:'Viskoelastik məhlullar'},silicone:{page:'silicone-oils.html',label:'Vitrektomiya məhsulları'}};
+ const go=(page,group,use)=>{const url=new URL(page,location.href);url.searchParams.set('lang',document.documentElement.lang||'az');if(group)url.searchParams.set('group',group);if(use)url.searchParams.set('use',use);if(window.irisOpenCatalogDirectory)window.irisOpenCatalogDirectory(url.href);else window.top.location.href=url.href;};
  for(const [kind,route] of Object.entries(routes)){
   const button=document.querySelector('.'+kind+'-accordion>.accordion-trigger');if(!button)continue;
   const link=document.createElement('a');link.className='consumable-section-link';link.dataset.directory=route.page;link.href=route.page;link.textContent=route.label;

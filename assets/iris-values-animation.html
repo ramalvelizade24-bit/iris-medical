@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>İris Medical — 15 san</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Manrope:wght@400;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03060d;--c1:#e8c36a;--c2:#9c6b1f}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);overflow:hidden;font-family:Manrope,system-ui,sans-serif;color:#fff}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+#vig{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(3,6,13,.85) 100%)}
+#grain{position:fixed;inset:-50%;z-index:6;pointer-events:none;opacity:.07;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+ animation:gr .6s steps(6) infinite}
+@keyframes gr{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+#stage{position:fixed;inset:0;z-index:2;pointer-events:none}
+.ghost{position:absolute;top:20vh;left:0;font-weight:800;font-size:28vh;line-height:1;white-space:nowrap;color:transparent;
+ -webkit-text-stroke:1px rgba(232,195,106,.22);visibility:hidden;will-change:transform,opacity}
+.block{position:absolute;left:0;right:0;bottom:13vh;text-align:center;padding:0 4vw;visibility:hidden}
+.kick{font:500 clamp(10px,1.25vw,15px)/1 'JetBrains Mono',monospace;letter-spacing:.35em;color:var(--c1);margin-bottom:2.4vh;
+ display:flex;gap:1.2em;justify-content:center;align-items:center}
+.kick i{display:block;height:1px;width:5vw;background:var(--c1)}
+.kick i:first-child{transform-origin:100% 50%}.kick i:last-child{transform-origin:0 50%}
+.title{font-weight:800;line-height:1;letter-spacing:.01em;perspective:900px;white-space:nowrap;filter:drop-shadow(0 0 22px rgba(232,195,106,.35))}
+.w{display:inline-block;margin:0 .14em}
+.l{display:inline-block;will-change:transform,opacity,filter;transform-origin:50% 100%;
+ background:linear-gradient(180deg,#fff4c9 0%,#f3d27f 38%,#d4a23a 70%,#a87722 100%);
+ -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.sub{margin:2.4vh auto 0;max-width:80vw;font-weight:400;font-size:clamp(13px,1.7vw,22px);color:rgba(255,242,210,.85);letter-spacing:.02em;line-height:1.35}
+.bar{position:fixed;left:0;right:0;background:#000;z-index:5;pointer-events:none}
+#bt{top:0}#bb{bottom:0}
+#fade{position:fixed;inset:0;background:#000;z-index:7;pointer-events:none}
+#prog{position:fixed;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,#2a6bff,#3ee0ff);z-index:8}
+#hint{position:fixed;right:14px;bottom:10px;z-index:8;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.15em;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="vig"></div>
+<div id="stage"></div>
+<div class="bar" id="bt"></div><div class="bar" id="bb"></div>
+<div id="grain"></div>
+<div id="fade"></div>
+<div id="prog"></div>
+<div id="hint">R — TƏKRAR · SPACE — PAUZA</div>
+
+<script src="iris-values-fallback.js"></script><script src="three-r128.min.js"></script>
+<script>
+(function(){
+'use strict';
+const DUR=15, N=9000, TAU=Math.PI*2;
+const SLOW=1.35; /* 1 = original speed; higher = slower (1.35 → ~20 s) */
+const starts=[0,3,5.5,8,10.5,12.5];
+const morphD=[2.4,1.2,1.2,1.2,1.2,1.2];
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const easeO=x=>1-Math.pow(1-x,3);
+const easeIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+/* ---------- shapes ---------- */
+function mk(fn){const a=new Float32Array(N*3);for(let i=0;i<N;i++){const p=fn(i);a[i*3]=p[0];a[i*3+1]=p[1];a[i*3+2]=p[2];}return a;}
+const R=Math.random;
+const chaos=mk(()=>{const u=R()*TAU,v=Math.acos(2*R()-1),r=4+R()*5;return[r*Math.sin(v)*Math.cos(u),r*Math.sin(v)*Math.sin(u),r*Math.cos(v)];});
+const iris=mk(()=>{
+  const RR=1.9,F=150,seg=TAU/F;let u=R(),r,ang=R()*TAU;
+  if(u<.12) r=RR*(.99+R()*.07);
+  else if(u<.2) r=RR*(.30+R()*.04);
+  else if(u<.27) r=RR*(.52+R()*.02);
+  else{r=RR*(.33+Math.pow(R(),.85)*.65);ang=Math.floor(ang/seg)*seg+(R()-.5)*.018;}
+  ang+=Math.sin(r*9)*.05;
+  return[Math.cos(ang)*r,Math.sin(ang)*r,-(r*r)*.12+(R()-.5)*.05];
+});
+const sphere=mk(i=>{const ga=Math.PI*(3-Math.sqrt(5)),y=1-(i/(N-1))*2,rr=Math.sqrt(1-y*y),th=ga*i,s=1.55*(1+(R()-.5)*.03);
+  return[Math.cos(th)*rr*s,y*s,Math.sin(th)*rr*s];});
+const knot=mk(()=>{const u=R()*TAU,c=2+Math.cos(3*u),s=.55;
+  return[c*Math.cos(2*u)*s+(R()-.5)*.1,c*Math.sin(2*u)*s+(R()-.5)*.1,Math.sin(3*u)*s+(R()-.5)*.1];});
+const rings=mk(i=>{const k=i%3,a=R()*TAU,r=1.6+(R()-.5)*.1,z=(R()-.5)*.1,c=Math.cos(a)*r,s=Math.sin(a)*r;
+  return k===0?[c,s,z]:k===1?[z,c,s]:[c,z,s];});
+const cube=mk(()=>{const H=1.25,f=Math.floor(R()*6),ax=f>>1,sg=(f&1)?1:-1,g=H/4;
+  let u=(R()*2-1)*H,v=(R()*2-1)*H;
+  if(R()<.6)u=Math.round(u/g)*g;
+  const p=[0,0,0];p[ax]=sg*H;p[(ax+1)%3]=u;p[(ax+2)%3]=v;return p;});
+const shapes=[chaos,iris,sphere,knot,rings,cube,iris];
+
+/* palettes per scene (A,B) */
+const pal=[['#3ee0ff','#2a6bff'],['#3ee0ff','#7affd9'],['#8a6bff','#3ee0ff'],['#19d3b5','#3ee0ff'],['#ffffff','#3ee0ff'],['#3ee0ff','#2a6bff']]
+  .map(p=>p.map(h=>new THREE.Color(h)));
+const spinW=[0,1,1,1,1,0];
+
+/* ---------- three ---------- */
+const canvas=document.getElementById('gl');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+renderer.setClearColor(0x03060d,1);
+const scene=new THREE.Scene();
+scene.fog=new THREE.FogExp2(0x03060d,.045);
+const camera=new THREE.PerspectiveCamera(45,1,.1,100);
+
+const geo=new THREE.BufferGeometry();
+const posA=new THREE.BufferAttribute(new Float32Array(shapes[0]),3);
+const posB=new THREE.BufferAttribute(new Float32Array(shapes[1]),3);
+posA.setUsage(THREE.DynamicDrawUsage);posB.setUsage(THREE.DynamicDrawUsage);
+const rnd=new Float32Array(N);for(let i=0;i<N;i++)rnd[i]=R();
+geo.setAttribute('position',posA);
+geo.setAttribute('aB',posB);
+geo.setAttribute('aRand',new THREE.BufferAttribute(rnd,1));
+
+const mat=new THREE.ShaderMaterial({
+  transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+  uniforms:{uMix:{value:0},uTime:{value:0},uSize:{value:20},uA:{value:new THREE.Color('#3ee0ff')},uB:{value:new THREE.Color('#2a6bff')}},
+  vertexShader:`
+    attribute vec3 aB; attribute float aRand;
+    uniform float uMix,uTime,uSize; varying float vR; varying float vF;
+    void main(){
+      float m=clamp((uMix-aRand*.35)/.65,0.,1.); m=m*m*(3.-2.*m);
+      float s=sin(m*3.14159);
+      vec3 p=mix(position,aB,m);
+      p+=vec3(sin(uTime*1.3+aRand*40.),cos(uTime*1.1+aRand*30.),sin(uTime*.9+aRand*20.))*.014;
+      p+=s*.9*vec3(cos(aRand*60.),sin(aRand*50.),cos(aRand*40.));
+      vec4 mv=modelViewMatrix*vec4(p,1.);
+      gl_PointSize=uSize*(.55+aRand*.9)*(1.+s*.7)/(-mv.z);
+      gl_Position=projectionMatrix*mv; vR=aRand; vF=s;
+    }`,
+  fragmentShader:`
+    uniform vec3 uA,uB; varying float vR; varying float vF;
+    void main(){
+      float d=length(gl_PointCoord-.5); if(d>.5) discard;
+      float a=smoothstep(.5,.0,d);
+      vec3 c=mix(uA,uB,vR)+vF*.35;
+      gl_FragColor=vec4(c,a*.85);
+    }`
+});
+const group=new THREE.Group();
+group.add(new THREE.Points(geo,mat));
+scene.add(group);
+
+/* grid floor */
+const grid=new THREE.GridHelper(60,60,0x3ee0ff,0x1b5a8a);
+grid.position.y=-2.4;
+grid.material.transparent=true;grid.material.opacity=.28;
+scene.add(grid);
+
+/* stars */
+const sg=new THREE.BufferGeometry(),sp=new Float32Array(700*3);
+for(let i=0;i<700;i++){const r=25+R()*25,u=R()*TAU,v=Math.acos(2*R()-1);
+  sp[i*3]=r*Math.sin(v)*Math.cos(u);sp[i*3+1]=r*Math.sin(v)*Math.sin(u);sp[i*3+2]=r*Math.cos(v);}
+sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const stars=new THREE.Points(sg,new THREE.PointsMaterial({color:0x9fdcff,size:.12,transparent:true,opacity:.6,fog:false}));
+scene.add(stars);
+
+/* camera path */
+const camCurve=new THREE.CatmullRomCurve3([
+  [0,.3,10],[.8,.2,6.6],[2.6,.9,6],[-2.6,1.3,5.8],[.2,2.6,6.3],[2.8,-.3,5.3],[0,0,6.6]
+].map(a=>new THREE.Vector3(a[0],a[1],a[2])),false,'catmullrom',.5);
+
+function resize(){
+  const w=innerWidth,h=innerHeight,pr=Math.min(devicePixelRatio||1,2);
+  renderer.setPixelRatio(pr);renderer.setSize(w,h,false);
+  camera.aspect=w/h;camera.updateProjectionMatrix();
+  mat.uniforms.uSize.value=20*pr*(h/900);
+}
+addEventListener('resize',resize);resize();
+
+/* ---------- typography ---------- */
+const stage=document.getElementById('stage');
+const blocks=[
+ {kick:'NƏYƏ GÖRƏ',title:'İris Medical',in:.5,out:2.75,v:3},
+ {kick:'01 / 04',title:'Etibarlılıq',sub:'Şəffaf və etik iş prinsipləri.',in:3.35,out:5.2,v:0,ghost:1},
+ {kick:'02 / 04',title:'İnnovasiya',sub:'Oftalmologiyanın ən son texnologiyaları — Azərbaycanda.',in:5.85,out:7.7,v:1,ghost:1},
+ {kick:'03 / 04',title:'Müştəriyönümlülük',sub:'Satışöncəsi məsləhət. Satışsonrası texniki dəstək.',in:8.35,out:10.2,v:2,ghost:1},
+ {kick:'04 / 04',title:'Keyfiyyət',sub:'Yalnız CE və ISO sertifikatlı markalar.',in:10.85,out:12.2,v:4,ghost:1},
+ {kick:'OFTALMOLOGİYA · AZƏRBAYCAN',title:'İris Medical',sub:'Etibarlılıq · İnnovasiya · Müştəriyönümlülük · Keyfiyyət',in:12.85,out:1e9,v:1}
+];
+const lang=new URLSearchParams(location.search).get('lang')||'az';
+const translations={"en":["WHY","Reliability","Transparent and ethical business principles.","Innovation","The latest ophthalmic technologies — in Azerbaijan.","Customer focus","Pre-sales advice. After-sales technical support.","Quality","Only CE and ISO certified brands.","OPHTHALMOLOGY · AZERBAIJAN","Reliability · Innovation · Customer focus · Quality","R — REPLAY · SPACE — PAUSE"],"ru":["ПОЧЕМУ","Надёжность","Прозрачные и этичные принципы работы.","Инновации","Новейшие офтальмологические технологии — в Азербайджане.","Забота о клиенте","Консультация до покупки. Техническая поддержка после продажи.","Качество","Только марки с сертификатами CE и ISO.","ОФТАЛЬМОЛОГИЯ · АЗЕРБАЙДЖАН","Надёжность · Инновации · Забота о клиенте · Качество","R — ПОВТОР · ПРОБЕЛ — ПАУЗА"],"tr":["NEDEN","Güvenilirlik","Şeffaf ve etik iş ilkeleri.","İnovasyon","En son oftalmoloji teknolojileri — Azerbaycan’da.","Müşteri odaklılık","Satış öncesi danışmanlık. Satış sonrası teknik destek.","Kalite","Yalnızca CE ve ISO sertifikalı markalar.","OFTALMOLOJİ · AZERBAYCAN","Güvenilirlik · İnovasyon · Müşteri odaklılık · Kalite","R — TEKRAR · SPACE — DURAKLAT"]};
+const labels=translations[lang];
+if(labels){blocks[0].kick=labels[0];for(let i=1;i<=4;i++){blocks[i].title=labels[i*2-1];blocks[i].sub=labels[i*2];}blocks[5].kick=labels[9];blocks[5].sub=labels[10];document.getElementById('hint').textContent=labels[11];document.documentElement.lang=lang;}
+blocks.forEach(b=>{
+  const txt=b.title.toLocaleUpperCase(lang);
+  if(b.ghost){
+    const g=document.createElement('div');g.className='ghost';
+    g.textContent=(txt+'  —  ').repeat(4);stage.appendChild(g);b.ghostEl=g;
+  }
+  const el=document.createElement('div');el.className='block';
+  el.innerHTML=(b.kick?`<div class="kick"><i></i><span>${b.kick}</span><i></i></div>`:'')+
+    '<div class="title"></div>'+(b.sub?`<div class="sub">${b.sub}</div>`:'');
+  stage.appendChild(el);b.el=el;
+  b.kickEl=el.querySelector('.kick');b.subEl=el.querySelector('.sub');
+  const title=el.querySelector('.title');b.letters=[];
+  txt.split(' ').forEach(w=>{
+    const ws=document.createElement('span');ws.className='w';
+    [...w].forEach(ch=>{const s=document.createElement('span');s.className='l';s.textContent=ch;ws.appendChild(s);
+      b.letters.push({el:s,r1:R(),r2:R(),r3:R()});});
+    title.appendChild(ws);
+  });
+  title.style.fontSize=Math.min(9.5,92/(txt.length*.8))+'vw';
+});
+
+function updBlock(b,t){
+  const vis=t>b.in-.05&&t<b.out+1;
+  b.el.style.visibility=vis?'visible':'hidden';
+  if(b.ghostEl)b.ghostEl.style.visibility=vis?'visible':'hidden';
+  if(!vis)return;
+  const loc=t-b.in;
+  b.letters.forEach((L,i)=>{
+    const p=clamp((loc-i*.04)/.75),e=easeO(p),q=clamp((t-b.out-i*.02)/.35),inv=1-e;
+    let tr='',bl=inv*10;
+    switch(b.v){
+      case 0:tr=`translateY(${inv*70-q*40}px) rotateX(${-90*inv}deg)`;break;
+      case 1:tr=`scale(${1+inv*2.2+q*.6})`;bl=inv*14;break;
+      case 2:{const d=i%2?1:-1;tr=`translateX(${d*(inv*120+q*80)}px) skewX(${-d*30*inv}deg)`;break;}
+      case 3:tr=`translate(${(L.r1-.5)*300*(inv+q)}px,${(L.r2-.5)*300*(inv+q)}px) rotate(${(L.r3-.5)*180*(inv+q)}deg)`;break;
+      default:tr=`translateY(${-inv*90+q*40}px) rotateX(${90*inv}deg)`;
+    }
+    const s=L.el.style;
+    s.opacity=(e*(1-q)).toFixed(3);s.transform=tr;
+    s.filter=(bl*(1-q)+q*8)>.3?`blur(${(bl*(1-q)+q*8).toFixed(1)}px)`:'none';
+  });
+  const q0=clamp((t-b.out)/.35);
+  if(b.kickEl){
+    const k=easeO(clamp(loc/.6));
+    b.kickEl.style.opacity=(k*(1-q0)).toFixed(3);
+    b.kickEl.querySelectorAll('i').forEach(i=>i.style.transform=`scaleX(${k})`);
+  }
+  if(b.subEl){
+    const sp2=easeO(clamp((loc-.55)/.7));
+    b.subEl.style.opacity=(sp2*(1-q0)).toFixed(3);
+    b.subEl.style.transform=`translateY(${(1-sp2)*18}px)`;
+    b.subEl.style.filter=(1-sp2)>.05?`blur(${((1-sp2)*8).toFixed(1)}px)`:'none';
+  }
+  if(b.ghostEl){
+    const o=easeO(clamp(loc/.8))*(1-q0);
+    b.ghostEl.style.opacity=o.toFixed(3);
+    b.ghostEl.style.transform=`translateX(${-(t-b.in)*90-60}px)`;
+  }
+}
+
+/* ---------- loop ---------- */
+const bt=document.getElementById('bt'),bb=document.getElementById('bb'),
+      fade=document.getElementById('fade'),prog=document.getElementById('prog');
+const params=new URLSearchParams(location.search);
+const fixedT=matchMedia('(prefers-reduced-motion: reduce)').matches?13.8:(params.has('t')?parseFloat(params.get('t')):null);
+let t0=performance.now(),paused=false,tCur=0,lastT=0,curScene=-1,spin=0,restartFlag=false;
+
+addEventListener('keydown',e=>{
+  if(e.code==='Space'){paused=!paused;e.preventDefault();}
+  if(e.key==='r'||e.key==='R')restartFlag=true;
+});
+addEventListener('pointerdown',()=>{paused=!paused;});
+
+const tmpA=new THREE.Color(),tmpB=new THREE.Color();
+function frame(now){
+  requestAnimationFrame(frame);
+  let t;
+  if(fixedT!==null){t=fixedT;}
+  else{
+    if(restartFlag){t0=now;restartFlag=false;}
+    if(paused)t0=now-tCur*1000*SLOW;
+    t=(now-t0)/1000/SLOW;
+    if(t>=DUR){t0=now;t=0;}
+  }
+  if(t<lastT){spin=0;curScene=-1;}
+  const dt=clamp(t-lastT,0,.1);lastT=t;tCur=t;
+
+  let i=0;for(let k=0;k<starts.length;k++)if(t>=starts[k])i=k;
+  if(i!==curScene){
+    posA.array.set(shapes[i]);posB.array.set(shapes[i+1]);
+    posA.needsUpdate=true;posB.needsUpdate=true;curScene=i;
+  }
+  const mix=easeIO(clamp((t-starts[i])/morphD[i]));
+  mat.uniforms.uMix.value=mix;mat.uniforms.uTime.value=t;
+  if(i>0){tmpA.copy(pal[i-1][0]).lerp(pal[i][0],mix);tmpB.copy(pal[i-1][1]).lerp(pal[i][1],mix);}
+  else{tmpA.copy(pal[0][0]);tmpB.copy(pal[0][1]);}
+  mat.uniforms.uA.value.copy(tmpA);mat.uniforms.uB.value.copy(tmpB);
+
+  const w=i>0?lerp(spinW[i-1],spinW[i],mix):0;
+  spin+=dt*.55*w;
+  const nearest=Math.round(spin/TAU)*TAU;
+  group.rotation.y=spin-(spin-nearest)*(1-w)+Math.sin(t*.45)*(.45-.3*w);
+  group.rotation.x=Math.sin(t*.3)*.12+w*.25;
+  const sc=1+.02*Math.sin(t*2)+.1*Math.sin(mix*Math.PI);
+  group.scale.setScalar(sc);
+
+  const k=camera.aspect<1.1?1.0/camera.aspect*.95:1;
+  const cp=camCurve.getPoint(clamp(t/DUR));
+  camera.position.set(cp.x*k+Math.sin(t*.7)*.08,cp.y+Math.cos(t*.9)*.06,cp.z*k);
+  camera.lookAt(0,.1,0);
+
+  grid.position.z=(t*.9)%1;
+  stars.rotation.y=t*.01;
+
+  blocks.forEach(b=>updBlock(b,t));
+
+  const bh=lerp(16,6,easeO(clamp(t/1.4)));
+  bt.style.height=bb.style.height=bh+'vh';
+  fade.style.opacity=Math.max(1-clamp(t/.5),clamp((t-(DUR-.4))/.4)).toFixed(3);
+  prog.style.width=(t/DUR*100)+'%';
+
+  renderer.render(scene,camera);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 (()=>{
- const keys={'Micro Incision Blade':'micro','Appa Blade':'appa','Appa Glide':'glide','Appa Blade Navigator':'navigator','Appa Blade Samurai-Edge':'samurai'};
- const go=group=>{const url=new URL('ophthalmic-blades.html',location.href);url.searchParams.set('lang',document.documentElement.lang||'az');if(group)url.searchParams.set('group',group);window.top.location.href=url.href;};
+ const keys={'Feather':'feather','Micro Incision Blade':'micro','Appa Blade':'appa','Appa Glide':'glide','Appa Blade Navigator':'navigator','Appa Blade Samurai-Edge':'samurai'};
+ const go=group=>{const url=new URL('ophthalmic-blades.html',location.href);url.searchParams.set('lang',document.documentElement.lang||'az');if(group)url.searchParams.set('group',group);if(window.irisOpenCatalogDirectory)window.irisOpenCatalogDirectory(url.href);else window.top.location.href=url.href;};
  document.addEventListener('click',e=>{
   const top=e.target.closest('.blade-section-link');
   const sub=e.target.closest('[data-ophthalmic-category]');

@@ -26,3 +26,5 @@ body .layout>.gallery>a{display:flex!important;align-items:center;justify-conten
 body .layout>.gallery>a:first-child{height:350px!important}
 body .layout>.gallery>a>img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;aspect-ratio:auto!important;margin:0!important}
 @media(max-width:540px){body .layout>.gallery>a:first-child{height:285px!important}body .layout>.gallery>a{height:180px!important}}
+
+.card .blade-card-specs{margin:8px 0 12px;color:#08778a;font-size:15px;line-height:1.5;font-weight:600;overflow-wrap:anywhere}

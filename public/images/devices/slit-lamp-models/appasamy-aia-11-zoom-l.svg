@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650" role="img" aria-label="Appasamy AIA-11 ZOOM-L"><defs><linearGradient id="white" x2="1" y2=".5"><stop stop-color="#c8d6df"/><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#b5c7d2"/></linearGradient><linearGradient id="metal"><stop stop-color="#6e7d88"/><stop offset=".4" stop-color="#e8f0f5"/><stop offset=".7" stop-color="#9aaab6"/><stop offset="1" stop-color="#f2f7fa"/></linearGradient><linearGradient id="dark" x2="0" y2="1"><stop stop-color="#4b5760"/><stop offset="1" stop-color="#15212a"/></linearGradient></defs>
+<ellipse cx="400" cy="570" rx="268" ry="23" fill="#e9eff3"/>
+<path d="M136 501L614 479 689 534 207 560 118 531Z" fill="url(#white)" stroke="#a2b4bf" stroke-width="2"/><path d="M118 531L207 560 689 534 689 546 207 573 118 542Z" fill="#75828c"/>
+<rect x="245" y="480" width="265" height="34" rx="12" fill="#6b7b86"/><path d="M264 466L448 455 493 485 306 495 252 480Z" fill="url(#white)" stroke="#9dabb5"/>
+<path d="M526 469V155Q526 113 574 113Q616 113 616 155V470" fill="none" stroke="url(#metal)" stroke-width="12"/><path d="M537 182Q572 168 606 182" fill="none" stroke="#424d54" stroke-width="16" stroke-linecap="round"/><path d="M530 352Q568 364 605 352L600 371Q571 383 535 371Z" fill="#26333b"/>
+<rect x="553" y="370" width="12" height="112" rx="5" fill="url(#metal)"/><circle cx="564" cy="429" r="18" fill="url(#dark)"/><circle cx="564" cy="429" r="8" fill="#6f7d86"/>
+<path d="M322 475V375L351 349 375 371V472Z" fill="url(#white)" stroke="#a1b3be" stroke-width="2"/><ellipse cx="352" cy="477" rx="50" ry="14" fill="#b4c4ce"/>
+<path d="M334 372L329 296Q331 276 354 271L438 270 451 303 407 343 376 374Z" fill="url(#white)" stroke="#a9b9c5" stroke-width="2"/>
+<circle cx="365" cy="327" r="30" fill="url(#dark)"/><circle cx="365" cy="327" r="20" fill="#d0dce3"/><circle cx="365" cy="327" r="7" fill="#263743"/>
+<path d="M338 286L290 265 259 283 305 316Z" fill="url(#white)" stroke="#a5b7c3"/>
+<g transform="translate(264 263) rotate(-19)"><rect x="-55" y="-12" width="68" height="36" rx="8" fill="url(#dark)"/><ellipse cx="-54" cy="6" rx="14" ry="19" fill="#16232c"/><ellipse cx="-55" cy="6" rx="8" ry="12" fill="#416270"/></g>
+<g transform="translate(282 297) rotate(-19)"><rect x="-55" y="-12" width="68" height="36" rx="8" fill="url(#dark)"/><ellipse cx="-54" cy="6" rx="14" ry="19" fill="#16232c"/><ellipse cx="-55" cy="6" rx="8" ry="12" fill="#416270"/></g>
+<path d="M442 472L447 226 477 226 484 473Z" fill="url(#white)" stroke="#a3b5c1"/><rect x="440" y="158" width="46" height="86" rx="9" fill="url(#white)" stroke="#a0b2bf"/><rect x="451" y="173" width="24" height="27" rx="5" fill="#28363f"/><path d="M448 150V109Q447 76 480 75Q507 76 508 105L508 227" fill="none" stroke="#697d8a" stroke-width="5"/><rect x="450" y="250" width="28" height="43" rx="5" fill="#26343e"/><path d="M437 305L484 305" stroke="#7f919d" stroke-width="10"/>
+<path d="M422 373Q454 355 492 375" fill="none" stroke="url(#metal)" stroke-width="13"/><circle cx="487" cy="379" r="15" fill="#26353f"/>
+<circle cx="397" cy="307" r="15" fill="#354752"/><circle cx="397" cy="307" r="8" fill="#d3dfe6"/>
+<path d="M283 466L279 412" stroke="#768c9a" stroke-width="10"/><ellipse cx="278" cy="410" rx="15" ry="24" fill="url(#dark)"/><ellipse cx="278" cy="470" rx="19" ry="8" fill="#263944"/>
+<rect x="341" y="486" width="78" height="17" rx="4" fill="#edf3f7"/><text x="380" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#415967">APPASAMY</text></svg>

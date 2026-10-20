@@ -1,4 +1,8 @@
 /* Apply the neutral background only to the lower Instagram banner. */
-body .career-join-banner{background:#f0f3f2!important;box-sizing:border-box;border:1px solid #dce3df;box-shadow:0 10px 34px #183e2810}
+body .career-join-banner{background:#f0f3f2!important;box-sizing:border-box;border:1px solid #dce3df;box-shadow:none;filter:none;backdrop-filter:none}
 /* Only the area outside the footer receives the matching light background. */
 .iris-footer-surround{display:flow-root;background:#edf7fc;isolation:isolate}
+
+/* Keep the Instagram artwork and lettering crisp and flat. */
+body .career-join-banner .career-join-art,body .career-join-banner .career-join-copy{filter:none;transform:none}
+body .career-join-banner h2{text-shadow:none}
