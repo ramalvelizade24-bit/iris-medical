@@ -5,3 +5,6 @@
 html body,html body *{font-family:'Iris Noto Sans',Arial,sans-serif!important}
 html body h1,html body h2,html body h3,html body h4,html body strong,html body b{font-weight:700}
 .career-modal .career-submit,.category,#category-panel button,#category-panel summary,.filters select{font-family:'Iris Noto Sans',Arial,sans-serif!important}
+
+/* Use real glyph weights, including Azerbaijani Ə/ə, without synthetic bold. */
+html body,html body *{font-synthesis:none}
