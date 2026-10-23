@@ -28,3 +28,21 @@ body .layout>.gallery>a>img{width:100%!important;height:100%!important;max-width
 @media(max-width:540px){body .layout>.gallery>a:first-child{height:285px!important}body .layout>.gallery>a{height:180px!important}}
 
 .card .blade-card-specs{margin:8px 0 12px;color:#08778a;font-size:15px;line-height:1.5;font-weight:600;overflow-wrap:anywhere}
+
+/* Compact, readable catalogue cards on phones. Full text remains in the DOM and on product pages. */
+@media(max-width:700px){
+ html body :is(.blade-products,.grid){grid-template-columns:minmax(0,1fr)!important;gap:14px!important;min-width:0!important}
+ html body :is(.blade-products,.grid)>.card{min-width:0!important;min-height:0!important;border-radius:18px!important}
+ html body :is(.blade-products,.grid)>.card>.photo{height:170px!important;max-height:170px!important;flex:0 0 170px!important;padding:12px!important}
+ html body :is(.blade-products,.grid)>.card>.photo img{max-height:146px!important;object-fit:contain!important}
+ html body :is(.blade-products,.grid)>.card>.copy{padding:14px!important;gap:0!important;min-width:0!important}
+ html body :is(.blade-products,.grid) .card .category{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;white-space:normal!important;text-overflow:ellipsis!important;font-size:11px!important;line-height:1.4!important;margin:0 0 7px!important;letter-spacing:.02em!important;max-height:2.8em!important}
+ html body :is(.blade-products,.grid) .card .product-name{display:block;min-width:0}
+ html body :is(.blade-products,.grid) .card h2{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;overflow:hidden!important;min-height:0!important;max-height:4.2em!important;font-size:16px!important;line-height:1.4!important;margin:0 0 8px!important;overflow-wrap:break-word!important}
+ html body :is(.blade-products,.grid) .card :is(.description,.blade-card-specs){display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;max-height:2.9em!important;font-size:13px!important;line-height:1.45!important;margin:6px 0 8px!important}
+ html body :is(.blade-products,.grid) .card .meta{font-size:12px!important;line-height:1.4!important;margin-top:auto!important;padding-top:8px!important}
+ html body .blade-groups{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ html body .blade-group{min-width:0!important;min-height:0!important;height:auto!important;overflow:hidden;border-radius:16px!important}
+ html body .blade-group img{height:120px!important;max-height:120px!important;flex:0 0 120px!important;padding:10px!important}
+ html body .blade-group h2{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;overflow:hidden!important;font-size:14px!important;line-height:1.4!important;max-height:calc(4.2em + 24px)!important;margin:0!important;padding:12px!important;overflow-wrap:break-word!important}
+}

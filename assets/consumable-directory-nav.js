@@ -9,6 +9,10 @@
  }
  const summary=document.querySelector('.cannula-accordion>summary');if(summary){const span=summary.querySelector('span'),link=document.createElement('a');link.className='cannula-section-link';link.href='surgical-instruments.html?group=Cannula';link.textContent='Kanyulalar';link.style.cssText='color:inherit;text-decoration:none';span.replaceWith(link);}
  document.addEventListener('click',e=>{
+  const cataractTitle=e.target.closest('[data-cataract-directory]');
+  if(cataractTitle){e.preventDefault();e.stopImmediatePropagation();go('cataract-consumables.html');return;}
+  const cataract=e.target.closest('[data-cataract-group]');
+  if(cataract){e.preventDefault();e.stopImmediatePropagation();go('cataract-consumables.html',cataract.dataset.cataractGroup);return;}
   const title=e.target.closest('.consumable-section-link'),cannula=e.target.closest('.cannula-section-link'),visco=e.target.closest('[data-viscoelastic-choice]'),silicone=e.target.closest('[data-silicone-group]'),pdms=e.target.closest('button[data-section-choice="Silikon yağları"]');
   if(!title&&!cannula&&!visco&&!silicone&&!pdms)return;
   e.preventDefault();e.stopImmediatePropagation();

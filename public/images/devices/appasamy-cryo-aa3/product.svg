@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+<title id="title">Appasamy Cryo Super Deluxe AA3</title>
+<desc id="desc">Vector illustration based on the supplied product photograph: control console, gas cylinder, pressure gauge, tubing and foot pedal.</desc>
+<defs>
+ <linearGradient id="metal" x2="1" y2="1"><stop stop-color="#e3edf0"/><stop offset=".4" stop-color="#adbec5"/><stop offset="1" stop-color="#718790"/></linearGradient>
+ <linearGradient id="front" x2="0" y2="1"><stop stop-color="#f4f5f0"/><stop offset="1" stop-color="#c1c8c5"/></linearGradient>
+ <linearGradient id="cylinder"><stop stop-color="#11141c"/><stop offset=".3" stop-color="#33353e"/><stop offset=".65" stop-color="#242631"/><stop offset="1" stop-color="#0e1119"/></linearGradient>
+ <radialGradient id="knob"><stop stop-color="#4e535b"/><stop offset=".7" stop-color="#242830"/><stop offset="1" stop-color="#10131a"/></radialGradient>
+</defs>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M756 230C612 210 601 278 650 374S781 496 701 557 632 583 612 585" stroke="#a7b9be" stroke-width="10"/>
+ <path d="M756 230C612 210 601 278 650 374S781 496 701 557 632 583 612 585" stroke="#e4edef" stroke-width="5"/>
+ <path d="M803 235C866 272 816 417 844 518S913 654 878 704 765 741 748 775" stroke="#84969d" stroke-width="8"/>
+ <path d="M803 235C866 272 816 417 844 518S913 654 878 704 765 741 748 775" stroke="#dce7e9" stroke-width="4"/>
+ <path d="M778 239C665 219 639 245 631 310" stroke="#b8c8cc" stroke-width="9"/>
+ <path d="M778 239C665 219 639 245 631 310" stroke="#eef3f4" stroke-width="4"/>
+ <path d="M809 225C876 267 878 373 889 438" stroke="#adbcc1" stroke-width="7"/>
+</g>
+<g>
+ <path d="M743 307Q743 268 768 253H790Q819 270 819 307V714Q819 742 781 742T743 714Z" fill="url(#cylinder)" stroke="#161c26" stroke-width="2"/>
+ <path d="M753 317V707" stroke="#70737c" stroke-opacity=".28" stroke-width="3"/>
+ <ellipse cx="781" cy="715" rx="35" ry="11" fill="#141821"/>
+ <rect x="770" y="228" width="20" height="37" rx="3" fill="#333943" stroke="#161b24" stroke-width="2"/>
+ <rect x="755" y="226" width="47" height="15" rx="3" fill="#383e47"/>
+ <path d="M765 226V205H786V226" fill="url(#metal)" stroke="#59656b" stroke-width="2"/>
+ <rect x="785" y="237" width="25" height="14" rx="2" fill="#bec8c7" stroke="#57676b"/>
+ <circle cx="778" cy="176" r="25" fill="url(#metal)" stroke="#6b7b82" stroke-width="3"/>
+ <circle cx="778" cy="176" r="20" fill="#f1f2e9" stroke="#66747a"/>
+ <g stroke="#616c70" stroke-width="1.5"><path d="M762 175h4M765 164l3 3M778 159v4M790 165l-3 3M794 176h-4M768 187l3-3M788 187l-3-3"/></g>
+ <path d="M778 176l9-12" stroke="#273640" stroke-width="2"/><circle cx="778" cy="176" r="2.5" fill="#273640"/>
+ <path d="M625 305l10-1 5 35-9 2Z" fill="#282c32"/><path d="M631 340l5-1 2 26-4 6Z" fill="url(#metal)"/>
+ <path d="M881 433l14-2-2 61-8 10-8-3Z" fill="#242830"/><path d="M881 434l5 1" stroke="#e7eceb" stroke-width="3"/>
+</g>
+<g>
+ <path d="M126 673l113-61 375 40-108 60Z" fill="url(#metal)" stroke="#94a8b1" stroke-width="2"/>
+ <path d="M506 712l108-60v168l-110 65Z" fill="#849ba5" stroke="#617a85" stroke-width="2"/>
+ <path d="M126 673l380 39-2 173-386-38Z" fill="#b5c6cc" stroke="#6f8791" stroke-width="3"/>
+ <path d="M142 688l346 35-1 143-352-34Z" fill="url(#front)" stroke="#354c55" stroke-width="3"/>
+ <path d="M312 706l-2 139M389 715l-2 138" stroke="#4c5e65" stroke-width="4"/>
+ <path d="M143 799l344 36" stroke="#3d5059" stroke-width="18"/>
+ <g fill="url(#knob)" stroke="#1a222a" stroke-width="2"><ellipse cx="160" cy="717" rx="10" ry="13"/><ellipse cx="190" cy="721" rx="11" ry="14"/><ellipse cx="219" cy="724" rx="11" ry="14"/></g>
+ <g stroke="#d6dedd" stroke-width="2"><path d="M160 710v8M189 714l2 9M220 718l-2 8"/></g>
+ <ellipse cx="164" cy="757" rx="7" ry="8" fill="#2c3b43"/>
+ <ellipse cx="199" cy="761" rx="7" ry="8" fill="#2c3b43"/>
+ <ellipse cx="254" cy="762" rx="27" ry="32" fill="#edf1e9" stroke="#34464e" stroke-width="5"/>
+ <ellipse cx="254" cy="762" rx="20" ry="25" fill="#dfe5df" stroke="#7f8b8a"/>
+ <rect x="244" y="753" width="20" height="15" rx="2" fill="#34424a"/><path d="M248 760h12" stroke="#dae1dd" stroke-width="2"/>
+ <ellipse cx="436" cy="787" rx="38" ry="50" fill="#35444c" stroke="#263842" stroke-width="3"/>
+ <ellipse cx="436" cy="787" rx="30" ry="41" fill="#f0f0e4" stroke="#9da9a5" stroke-width="2"/>
+ <g stroke="#5f6b6c" stroke-width="2"><path d="M417 762l5 5M435 751v8M454 765l-5 5M459 789h-7M451 814l-5-6M418 809l5-5M410 786h7"/></g>
+ <path d="M436 787l12-24" stroke="#273c47" stroke-width="2.5"/><circle cx="436" cy="787" r="3" fill="#273c47"/>
+ <text x="150" y="821" fill="#f5f6f0" font-family="Arial,sans-serif" font-size="10" font-weight="700" transform="rotate(5.8 150 821)">CRYO SUPER DELUXE AA3</text>
+ <path d="M575 704v95" stroke="#a4b5bc" stroke-width="2"/>
+ <g fill="#405762"><circle cx="145" cy="694" r="2.5"/><circle cx="478" cy="728" r="2.5"/><circle cx="146" cy="824" r="2.5"/><circle cx="475" cy="856" r="2.5"/></g>
+</g>
+<g>
+ <path d="M748 775C767 769 814 759 837 775L845 800Q796 821 746 801Z" fill="#252a33" stroke="#131b24" stroke-width="3"/>
+ <path d="M750 780Q795 768 835 783L837 792Q791 805 749 794Z" fill="#3c434d"/>
+ <g stroke="#171f28" stroke-width="3"><path d="M763 782l1 12M775 779l1 17M788 777v20M801 777v20M814 779l-1 17M827 782l-1 12"/></g>
+</g>
+</svg>

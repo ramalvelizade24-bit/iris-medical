@@ -21,3 +21,14 @@
 @media(max-width:1000px){#home-products .home-product{flex-basis:calc((100% - 24px)/2)}}
 @media(max-width:600px){#home-products .carousel-track{gap:18px}#home-products .home-product{flex-basis:100%;border-radius:22px}#home-products .home-product>a{padding:20px}#home-products .home-product img{height:220px}#home-products .home-product-copy{padding:22px}#home-products .home-product h3{font-size:20px}}
 @media(prefers-reduced-motion:reduce){#home-products .home-product,#home-products .home-product img{transition:none}#home-products .home-product:hover,#home-products .home-product:hover img{transform:none}}
+
+/* Keep long product names from creating oversized carousel cards on phones. */
+@media(max-width:700px){
+ #home-products .home-product{min-width:0;min-height:0;border-radius:18px}
+ #home-products .home-product>a{display:block;padding:12px!important}
+ #home-products .home-product img{height:170px!important;max-height:170px!important;object-fit:contain}
+ #home-products .home-product-copy{padding:14px!important;min-width:0}
+ #home-products .home-product small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:11px;line-height:1.4;min-height:0;max-height:2.8em}
+ #home-products .home-product h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:17px!important;line-height:1.4;min-height:0!important;max-height:4.2em;margin:7px 0 12px!important;overflow-wrap:break-word}
+ #home-products .whatsapp-order{min-height:44px;font-size:13px}
+}
